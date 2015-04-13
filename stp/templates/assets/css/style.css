@@ -1,3 +1,17 @@
+body{
+	height: 100%;
+}
+#wrap {
+	min-height: 100%;
+	height: auto;
+	margin: 0 auto -60px;
+	padding: 0 0 60px;
+}
+
+#push{
+	height: 60px;
+}
+
 .nav-orange{
 	color: #FFF;
 	background-color: #DD4814;
@@ -44,11 +58,29 @@
 	color:#333;
 }
 
-.footer{
-	bottom: 0px;
-	width: 100%;
-	height: 40px;
-	padding: 10px;
+#footer{
+
+	height: 60px;
+	padding: 20px;
 	background-color: #F5F5F5;
 	text-align: center;
+	width: 100%;
+	bottom: 0;
+}
+
+.form-signin{
+	max-width: 330px;
+	padding: 15px;
+	margin: 0px auto;
+}
+
+.btn-orange{
+	color: #FFF;
+	background-color: #fb6730;
+	border-color: #BF3E11;
+}
+
+.btn-orange:hover{
+	color: #FFF;
+	background-color: #DD4814;
 }
