@@ -1,0 +1,54 @@
+.nav-orange{
+	color: #FFF;
+	background-color: #DD4814;
+	border-color: #BF3E11;
+}
+
+.navbar-brand-orange{
+	float: left;
+	padding: 4px;
+	font-size: 18px;
+	line-height: 20px;
+	height: 50px;
+	color: #FFF;
+}
+
+.first-row{
+	margin-top: 70px;
+}
+
+.image-header{
+	margin-bottom: 20px;
+	margin-top: -30px;
+}
+
+.primary-sort-button{
+	margin-left: 10px;
+}
+
+.nav-glyphicon{
+	margin-right: 5px;
+}
+
+.header-panel > a, .header-panel > a:hover, .header-panel > a:active, .header-panel > a:focus{
+	color: #DD4814;
+
+	text-decoration: none;
+}
+
+.header-panel{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.author-panel, .author-panel:hover, .author-panel:active, .author-panel:focus{
+	color:#333;
+}
+
+.footer{
+	bottom: 0px;
+	width: 100%;
+	height: 40px;
+	padding: 10px;
+	background-color: #F5F5F5;
+	text-align: center;
+}

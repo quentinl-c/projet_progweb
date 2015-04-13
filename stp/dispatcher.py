@@ -16,13 +16,17 @@
 #
 import webapp2
 import sys
+
 sys.path.insert(0, 'controller')
+sys.path.insert(1, 'utils')
+
+
 import handler
 
 class MainHandler(handler.Handler):
-    def get(self):
-        self.response.write('Hello world!')
+	def get(self):
+		self.render("front.html")
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler)
+	('/', MainHandler)
 ], debug=True)
