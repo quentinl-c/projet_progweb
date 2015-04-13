@@ -74,6 +74,12 @@ body{
 	margin: 0px auto;
 }
 
+.form-signup{
+	max-width: 800px;
+	padding: 15px;
+	margin: 0px auto;
+}
+
 .btn-orange{
 	color: #FFF;
 	background-color: #fb6730;
