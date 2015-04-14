@@ -95,3 +95,14 @@ body{
 .border-top{
 	border-top: solid #F5F5F5;
 }
+
+.btn-gp{
+	margin-bottom: 20px;
+}
+
+html, body, #map-canvas { 
+	width: 100%;
+	margin: 0; 
+	padding: 0;
+	height:  400px;
+}
