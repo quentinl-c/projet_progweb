@@ -62,10 +62,11 @@ body{
 
 	height: 60px;
 	padding: 20px;
-	background-color: #F5F5F5;
 	text-align: center;
 	width: 100%;
 	bottom: 0;
+	margin: 0px auto;
+	
 }
 
 .form-signin{
@@ -89,4 +90,8 @@ body{
 .btn-orange:hover{
 	color: #FFF;
 	background-color: #DD4814;
+}
+
+.border-top{
+	border-top: solid #F5F5F5;
 }

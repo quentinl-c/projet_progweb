@@ -25,7 +25,7 @@ import handler
 
 class MainHandler(handler.Handler):
 	def get(self):
-		self.render("signup.html")
+		self.render("profil.html")
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler)
