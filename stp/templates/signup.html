@@ -7,23 +7,23 @@
 			<div class="jumbotron">
 				<img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
 				
-				<form class="" role="form">
+				<form method="post" class="">
 					<h2 class="form-signin-heading">Inscris-toi </h2>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Login</label>
-						<input class="form-control" id="login" placeholder="Votre Login" type="text">
+						<input class="form-control" name="login" requiered="true" placeholder="Votre Login" type="text">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputEmail1">Adresse email</label>
-						<input class="form-control" id="email" placeholder="Enter email" type="email">
+						<input class="form-control" name="email" requiered="true" placeholder="Enter email" type="email">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Mot de passe</label>
-						<input class="form-control" id="password" placeholder="Password" type="password">
+						<input class="form-control" name="password" requiered="true" placeholder="Password" type="password">
 					</div>
 					<div class="form-group">
 						<label for="exampleInputPassword1">Confirmation du mot de passe</label>
-						<input class="form-control" id="confirmation" placeholder="Confirmation du mot de passe" type="password">
+						<input class="form-control" name="confirmation" requiered="true" placeholder="Confirmation du mot de passe" type="password">
 					</div>
 					
 					<button type="submit" class="btn btn-orange">S'enregistrer</button>

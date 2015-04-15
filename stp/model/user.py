@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+import hash
 from google.appengine.ext import db
 
 class User(db.Model):

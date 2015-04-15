@@ -19,7 +19,7 @@ import sys
 
 sys.path.insert(0, 'controller')
 sys.path.insert(1, 'utils')
-
+sys.path.insert(2, 'model')
 
 import handler
 import register
