@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import handler
 import inputValidation
 import user
@@ -23,7 +24,7 @@ class Register(handler.Handler):
 			have_error = True
 
 		if not inputValidation.valid_password(self.password):
-			params["error_passwor"] = "Le mot de passe n'est pas correcte"
+			params["error_password"] = "Le mot de passe n'est pas correcte"
 			have_error = True
 
 		if self.password != self.confirmation:
@@ -34,8 +35,9 @@ class Register(handler.Handler):
 			params["error_email"] = "L'email n'est pas correcte"
 			have_error = True
 
-		if not have_error and not user.User.findByLogin(self.login):
-			params["error_login"] = "Ce login existe déjà"
+		if not have_error and user.User.findByLogin(self.login) != None :
+			params["error_login"] = "Ce login existe deja"
+			have_error = True
 
 		if have_error :
 			self.render("signup.html")
