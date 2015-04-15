@@ -22,11 +22,13 @@ sys.path.insert(1, 'utils')
 
 
 import handler
+import register
 
 class MainHandler(handler.Handler):
 	def get(self):
-		self.render("front.html")
+		self.render("task.html")
 
 app = webapp2.WSGIApplication([
-	('/', MainHandler)
+	('/', MainHandler),
+	('/signup', register.Register)
 ], debug=True)
