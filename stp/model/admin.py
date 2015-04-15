@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 from google.appengine.ext import db
+import hash
 
 class Admin(db.Model):
 	login = db.StringProperty(required = True)
@@ -8,8 +9,7 @@ class Admin(db.Model):
 	
 	@classmethod
 	def create(cls,login,password):
-		#TODO : hash pwd
-		newAdmin = Admin(login=login,password=password)
+		newAdmin = Admin(login=login,password=hash.make_pw_hash(login,password))
 		newAdmin.put()
 		return newAdmin.key().id()
 		
