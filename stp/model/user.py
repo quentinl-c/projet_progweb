@@ -2,6 +2,8 @@
 
 from google.appengine.ext import db
 
+import hash
+
 class User(db.Model):
 	login = db.StringProperty(required = True)
 	password = db.StringProperty(required = True)
@@ -15,8 +17,7 @@ class User(db.Model):
 
 	@classmethod
 	def create(cls, login, password, email, lastName=None, firstName=None, birthDate=None, address=None, phoneNumber=None):
-		#TODO : hash pwd
-		newUser = User(login=login, password=password, email=email, lastName=lastName, firstName=firstName, birthDate=birthDate, address=address, phoneNumber=phoneNumber, points=0)
+		newUser = User(login=login, password=hash.make_pw_hash(login,password), email=email, lastName=lastName, firstName=firstName, birthDate=birthDate, address=address, phoneNumber=phoneNumber, points=0)
 		print newUser.put() 
 		return newUser.key().id()
 

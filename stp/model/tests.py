@@ -5,7 +5,7 @@ from datetime import date
 
 from google.appengine.ext import db
 
-from users import Users
+from user import User
 from admin import Admin
 from TaskOffer import TaskOffer
 from Task import Task
@@ -20,13 +20,13 @@ class MainHandler(webapp2.RequestHandler):
 		self.email="paradis@putalundi.com"
 	
 		#test User
-		newUserID=Users.create(login=self.login,password=self.password,email=self.email)
+		newUserID=User.create(login=self.login,password=self.password,email=self.email)
 		print newUserID
 		#self.response.write("ID="+str(newUserID))
-		user = Users.get_by_id(newUserID)
+		user = User.get_by_id(newUserID)
 		print user
 		self.response.write("<p>login : "+user.login +", password : "+ user.password + ", email : "+ user.email+"</p>")
-		Users.deleteUser(idf=newUserID)
+		User.deleteUser(idf=newUserID)
 
 		#test admin
 		newAdminID=Admin.create(login=self.login,password=self.password)
