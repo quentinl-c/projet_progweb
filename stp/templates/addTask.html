@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div class="container">
+	<div class="row clearfix first-row">
+		<div class="col-md-12 column">
+			<div class="jumbotron">
+				<img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
+				
+				<form class="" role="form">
+					<div class="form-group">
+						<label for="exampleInputEmail1">Titre</label>
+						<input class="form-control" id="login" placeholder="Titre" type="text">
+						<p class="bg-danger">Le titre est obligatoire</p>
+					</div>
+					<div class="form-group">
+						<label for="exampleInputEmail1">Description</label>
+
+						<textarea class="form-control" rows="5" id="comment">Votre description</textarea>
+
+					</div>
+					<div class="form-group">
+						<label for="exampleInputPassword1">Adresse</label>
+						<input class="form-control" id="address" placeholder="The place to be" type="text">
+					</div>
+					<button type="submit" class="btn btn-orange">Publier</button>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

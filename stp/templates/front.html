@@ -1,0 +1,67 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row clearfix first-row">
+	<div class="col-md-12 column">
+		<div class="jumbotron">
+			<img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
+			<p>Publiez gratuitement vos tâches ...</p>
+			<form>
+				<div class="input-group">
+					<input class="form-control" aria-label="Text input with segmented button dropdown" placeholder="Faites votre recherche 	..." type="text">
+					<div class="input-group-btn">
+						<button type="button" class="btn btn-default">
+							<span class="glyphicon glyphicon-search"></span>
+						</button>
+						<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+							<span class="caret"></span>
+							<span class="sr-only">Toggle Dropdown</span>
+						</button>
+						<ul class="dropdown-menu dropdown-menu-right" role="menu">
+							<li><a href="#">Par titre</a></li>
+							<li><a href="#">Par demandeur</a></li>
+						</ul>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+<div class="row clearfix">
+	<div class="col-md-3 column">
+		<div class="list-group">
+			<a href="#" class="list-group-item">Découvrez notre API</a>
+			<a href="#" class="list-group-item">En savoir plus sur nous</a>
+		</div>
+	</div>
+	<div class="col-md-9 column">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="header-panel"><a href="#">Tondre ma pelouse</a></h3>
+			</div>
+			<div class="panel-body">
+				<p>J'ai un jardin de trois hectares et une paire de ciseaux, qui est partant pour tondre mon jardin ? Allez, venez ! On est bien !!!!!</p>
+			</div>
+			<div class="panel-footer"><em><a href="#" class="author-panel">Publié par : QuentinDu44</a> Le 21.12.12</em></div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="header-panel"><a href="#">Tondre ma pelouse</a></h3>
+			</div>
+			<div class="panel-body">
+				<p>J'ai un jardin de trois hectares et une paire de ciseaux, qui est partant pour tondre mon jardin ? Allez, venez ! On est bien !!!!!</p>
+			</div>
+			<div class="panel-footer"><em><a href="#" class="author-panel">Publié par : QuentinDu44</a> Le 21.12.12</em></div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h3 class="header-panel"><a href="#">Tondre ma pelouse</a></h3>
+			</div>
+			<div class="panel-body">
+				<p>J'ai un jardin de trois hectares et une paire de ciseaux, qui est partant pour tondre mon jardin ? Allez, venez ! On est bien !!!!!</p>
+			</div>
+			<div class="panel-footer"><em><a href="#" class="author-panel">Publié par : QuentinDu44</a> Le 21.12.12</em></div>
+		</div>
+	</div>
+</div>
+{% endblock %}

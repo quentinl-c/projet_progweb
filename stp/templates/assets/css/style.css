@@ -1,0 +1,118 @@
+body{
+	height: 100%;
+}
+#wrap {
+	min-height: 100%;
+	height: auto;
+	margin: 0 auto -60px;
+	padding: 0 0 60px;
+}
+
+#push{
+	height: 60px;
+}
+
+.nav-orange{
+	color: #FFF;
+	background-color: #DD4814;
+	border-color: #BF3E11;
+}
+
+.navbar-brand-orange{
+	float: left;
+	padding: 4px;
+	font-size: 18px;
+	line-height: 20px;
+	height: 50px;
+	color: #FFF;
+}
+
+.first-row{
+	margin-top: 70px;
+}
+
+.image-header{
+	margin-bottom: 20px;
+	margin-top: -30px;
+}
+
+.primary-sort-button{
+	margin-left: 10px;
+}
+
+.nav-glyphicon{
+	margin-right: 5px;
+}
+
+.header-panel > a, .header-panel > a:hover, .header-panel > a:active, .header-panel > a:focus{
+	color: #DD4814;
+
+	text-decoration: none;
+}
+
+.header-panel{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+.author-panel, .author-panel:hover, .author-panel:active, .author-panel:focus{
+	color:#333;
+}
+
+#footer{
+
+	height: 60px;
+	padding: 20px;
+	text-align: center;
+	width: 100%;
+	bottom: 0;
+	margin: 0px auto;
+	
+}
+
+.form-signin{
+	max-width: 330px;
+	padding: 15px;
+	margin: 0px auto;
+}
+
+.form-signup{
+	max-width: 800px;
+	padding: 15px;
+	margin: 0px auto;
+}
+
+.btn-orange{
+	color: #FFF;
+	background-color: #fb6730;
+	border-color: #BF3E11;
+}
+
+.btn-orange:hover{
+	color: #FFF;
+	background-color: #DD4814;
+}
+
+.border-top{
+	border-top: solid #F5F5F5;
+}
+
+.btn-gp{
+	margin-bottom: 20px;
+}
+
+html, body, #map-canvas { 
+	width: 100%;
+	margin: 0; 
+	padding: 0;
+	height:  400px;
+}
+
+.bg-danger {
+	margin-top: 10px;
+	border-radius: 3px;
+	padding: 5px;
+	color: #FFF;
+	background-color: #FB6730;
+	border-color: #BF3E11;
+	opacity: 0.6;
+}

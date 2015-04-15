@@ -9,8 +9,11 @@ handlers:
   static_files: favicon.ico
   upload: favicon\.ico
 
+- url: /assets
+  static_dir: templates/assets
+
 - url: .*
-  script: controller/dispatcher.app
+  script: dispatcher.app
 
 libraries:
 - name: webapp2
