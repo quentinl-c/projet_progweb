@@ -8,13 +8,16 @@ class TaskOffer(db.Model):
 	private = db.BooleanProperty(required=True)
 	address = db.StringProperty(required=False)
 
-	def create(title, content, creatorLogin, date, private, address):
+	@classmethod
+	def create(cls, title, content, creatorLogin, date, private, address):
 		taskOffer = TaskOffer(title=title, content=content, creatorLogin=creatorLogin, date=date, private=private, address=address)
 		taskOffer.put()
 		return taskOffer.key().id()
 
-	def findByCreator(creatorLogin):
+	@classmethod
+	def findByCreator(cls, creatorLogin):
 		return db.GqlQuery("SELECT * FROM TaskOffer WHERE name = %s" % creatorLogin)
 
-	def findByTitle(title):
+	@classmethod
+	def findByTitle(cls, title):
 		return db.GqlQuery("SELECT * FROM TaskOffer WHERE title = %s" % title)

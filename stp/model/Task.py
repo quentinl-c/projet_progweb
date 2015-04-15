@@ -6,10 +6,12 @@ class Task(db.Model):
 	done = db.BooleanProperty(required=True)
 	accepted = db.BooleanProperty(required=True)
 
-	def create(taskOfferId, providerLogin, done, accepted):
+	@classmethod
+	def create(cls, taskOfferId, providerLogin, done, accepted):
 		task = Task(taskOfferId=taskOfferId, providerLogin=providerLogin, done=done, accepted=accepted)
 		task.put()
 		return task.key().id()
 
-	def findByTaskOfferId(taskOfferId):
+	@classmethod
+	def findByTaskOfferId(cls, taskOfferId):
 		return db.GqlQuery("SELECT * FROM Task WHERE taskOfferId = %s" % str(taskOfferId))
