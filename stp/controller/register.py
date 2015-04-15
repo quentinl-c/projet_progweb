@@ -14,7 +14,7 @@ class Register(handler.Handler):
 		self.password = self.request.get("password")
 		self.confirmation = self.request.get("confirmation")
 
-		params = dict(username = self.login,
+		params = dict(login = self.login,
 					  email = self.email)
 		have_error = False
 
@@ -33,6 +33,9 @@ class Register(handler.Handler):
 		if not inputValidation.valid_email(self.email):
 			params["error_email"] = "L'email n'est pas correcte"
 			have_error = True
+
+		if not have_error and not user.User.findByLogin(self.login):
+			params["error_login"] = "Ce login existe déjà"
 
 		if have_error :
 			self.render("signup.html")
