@@ -20,7 +20,7 @@ class Register(handler.Handler):
 		have_error = False
 
 		if not inputValidation.valid_username(self.login):
-			params["error_login"] = "Login est incorrecte"
+			params["error_login"] = "Le login doit etre compose de 3 a 20 chiffres, lettres "
 			have_error = True
 
 		if not inputValidation.valid_password(self.password):
@@ -40,7 +40,7 @@ class Register(handler.Handler):
 			have_error = True
 
 		if have_error :
-			self.render("signup.html")
+			self.render("signup.html", **params)
 		else:
 			user.User.create(self.login, self.password, self.email)
 			self.redirect("/")
