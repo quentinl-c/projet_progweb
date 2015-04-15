@@ -25,7 +25,7 @@ import handler
 
 class MainHandler(handler.Handler):
 	def get(self):
-		self.render("profil.html")
+		self.render("addTask.html")
 
 app = webapp2.WSGIApplication([
 	('/', MainHandler)

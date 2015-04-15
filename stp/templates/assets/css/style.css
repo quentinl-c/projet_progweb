@@ -106,3 +106,13 @@ html, body, #map-canvas {
 	padding: 0;
 	height:  400px;
 }
+
+.bg-danger {
+	margin-top: 10px;
+	border-radius: 3px;
+	padding: 5px;
+	color: #FFF;
+	background-color: #FB6730;
+	border-color: #BF3E11;
+	opacity: 0.6;
+}
