@@ -10,38 +10,38 @@
 				<form method="post" class="">
 					<h2 class="form-signin-heading">Inscris-toi </h2>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Login</label>
-						<input class="form-control" name="login" requiered="true" placeholder="Votre Login" type="text" value={{login}}>
+						<label for="login">Login</label>
+						<input class="form-control" id="login" name="login" required="true" placeholder="Votre Login" type="text" {% if login %}value={{login}}{% endif %}>
 						{% if error_login %}
-						<p class="bg-danger">{{error_login}}</p>
+						<p class="alert alert-danger">{{error_login}}</p>
 						{% endif %}
 
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Adresse email</label>
-						<input class="form-control" name="email" requiered="true" placeholder="Enter email" type="email" value={{email}}>
+						<label for="email">Adresse email</label>
+						<input class="form-control" id="login" name="email" required="true" placeholder="Votre email" type="email" {% if email %}value={{email}}{% endif %}>
 						{% if error_email %}
-						<p class="bg-danger">{{error_email}}</p>
+						<p class="alert alert-danger">{{error_email}}</p>
 						{% endif %}
 
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Mot de passe</label>
-						<input class="form-control" name="password" requiered="true" placeholder="Password" type="password">
+						<label for="password">Mot de passe</label>
+						<input class="form-control" id="password" name="password" required="true" placeholder="Votre mot de passe" type="password">
 						{% if error_password %}
-						<p class="bg-danger">{{error_password}}</p>
+						<p class="alert alert-danger">{{error_password}}</p>
 						{% endif %}
 					</div>
 
 					<div class="form-group">
-						<label for="exampleInputPassword1">Confirmation du mot de passe</label>
-						<input class="form-control" name="confirmation" requiered="true" placeholder="Confirmation du mot de passe" type="password">
+						<label for="confirmation">Confirmation du mot de passe</label>
+						<input class="form-control" id="confirmation" name="confirmation" required="true" placeholder="Confirmation du mot de passe" type="password">
 						{% if error_confirmation %}
-						<p class="bg-danger">{{error_confirmation}}</p>
+						<p class="alert alert-danger">{{error_confirmation}}</p>
 						{% endif %}
 					</div>
 					
-					<button type="submit" class="btn btn-orange">S'enregistrer</button>
+					<button type="submit" class="btn btn-orange pull-right">S'enregistrer</button>
 				</form>
 				
 			</div>
