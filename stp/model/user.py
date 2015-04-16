@@ -28,4 +28,4 @@ class User(db.Model):
 
 	@classmethod
 	def findByLogin(cls, login):
-		return db.GqlQuery("SELECT * FROM User WHERE login = \'%s\'" % login)
+		return db.GqlQuery("SELECT * FROM Users WHERE login = \'%s\'" % login).get()
