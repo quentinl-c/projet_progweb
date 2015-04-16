@@ -14,4 +14,4 @@ class Task(db.Model):
 
 	@classmethod
 	def findByTaskOfferId(cls, taskOfferId):
-		return db.GqlQuery("SELECT * FROM Task WHERE taskOfferId = %s" % str(taskOfferId))
+		return db.GqlQuery("SELECT * FROM Task WHERE taskOfferId = %s" % str(taskOfferId)).get()
