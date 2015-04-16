@@ -24,6 +24,7 @@ sys.path.insert(2, 'model')
 import handler
 import register
 import login
+import logout
 
 class MainHandler(handler.Handler):
 	def get(self):
@@ -32,5 +33,6 @@ class MainHandler(handler.Handler):
 app = webapp2.WSGIApplication([
 	('/', MainHandler),
 	('/signup', register.Register),
-	('/login', login.Login)
+	('/login', login.Login),
+	('/logout', logout.Logout)
 ], debug=True)
