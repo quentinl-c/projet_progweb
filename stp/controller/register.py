@@ -38,7 +38,7 @@ class Register(Handler):
 			params["error_email"] = "L'email n'est pas correct."
 			have_error = True
 
-		if not have_error and user.User.findByLogin(self.login) != None :
+		if not have_error and User.findByLogin(self.login) != None :
 			params["error_login"] = "Ce login existe deja."
 			have_error = True
 
