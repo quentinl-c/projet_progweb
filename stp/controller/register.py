@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-import handler
-import inputValidation
+from handler import Handler
 from user import User
+
+import inputValidation
 import cookie
 
-class Register(handler.Handler):
+class Register(Handler):
 
 	def get(self):
 		self.render("signup.html")

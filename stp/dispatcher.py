@@ -21,18 +21,16 @@ sys.path.insert(0, 'controller')
 sys.path.insert(1, 'utils')
 sys.path.insert(2, 'model')
 
-import handler
-import register
-import login
-import logout
+from handler import Handler
+from register import Register
+from login import Login
+from logout import Logout
+from front import Front
 
-class MainHandler(handler.Handler):
-	def get(self):
-		self.render("task.html")
 
 app = webapp2.WSGIApplication([
-	('/', MainHandler),
-	('/signup', register.Register),
-	('/login', login.Login),
-	('/logout', logout.Logout)
+	('/', Front),
+	('/signup', Register),
+	('/login', Login),
+	('/logout', Logout)
 ], debug=True)

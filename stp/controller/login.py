@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 
-import handler
+from handler import Handler
 from user import User
+
 import cookie
 import hash
 
-class Login(handler.Handler):
+class Login(Handler):
 	def get(self):
 		if cookie.is_valid_and_secure(self, "userId"):
 			self.redirect('/')
@@ -40,4 +41,4 @@ class Login(handler.Handler):
 				self.render("login.html", **params)
 			else:
 				cookie.set_secure(self, "userId", str(user.key().id()))
-				self.redirect('/')
+				self.redirect('/',)
