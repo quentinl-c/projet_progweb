@@ -2,7 +2,8 @@
 
 import handler
 import inputValidation
-import user
+from user import User
+import cookie
 
 class Register(handler.Handler):
 
@@ -43,6 +44,7 @@ class Register(handler.Handler):
 		if have_error :
 			self.render("signup.html", **params)
 		else:
-			user.User.create(self.login, self.password, self.email)
+			userId = User.create(self.login, self.password, self.email)
+			cookie.set_secure(self, "userId", str(userId))
 			self.redirect("/")
 
