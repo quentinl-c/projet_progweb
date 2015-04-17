@@ -5,6 +5,7 @@ from user import User
 
 import cookie
 import hash
+import inputValidation
 
 class Login(Handler):
 	def get(self):
@@ -31,11 +32,15 @@ class Login(Handler):
 				params["error_password"] = "Il faut renseigner un mot de passe."
 				have_error = True
 
-			if not have_error :
-				user = User.findByLogin(login)
-				if (not user) or (not hash.valid_pw(user.login, password, user.password)) :
-					params["error_login"] = "Login ou mot de passe inconnu."
-					have_error = True
+			if inputValidation.valid_username(login) and inputValidation.valid_password(password) :
+				if not have_error :
+					user = User.findByLogin(login)
+					if (not user) or (not hash.valid_pw(user.login, password, user.password)) :
+						params["error_login"] = "Login ou mot de passe inconnu."
+						have_error = True
+			else :
+				have_error = True
+				params["error_login"] = "Le login ou le mot de passe pas bien forme."
 
 			if have_error :
 				self.render("login.html", **params)

@@ -13,7 +13,7 @@
 						<label for="login">Login</label>
 						<input class="form-control" id="login" name="login" required="true" placeholder="Votre Login" type="text" {% if login %}value={{login}}{% endif %}>
 						{% if error_login %}
-						<p class="alert alert-danger">{{error_login}}</p>
+						<p class="alert alert-danger frame-alert">{{error_login}}</p>
 						{% endif %}
 
 					</div>
@@ -21,7 +21,7 @@
 						<label for="email">Adresse email</label>
 						<input class="form-control" id="login" name="email" required="true" placeholder="Votre email" type="email" {% if email %}value={{email}}{% endif %}>
 						{% if error_email %}
-						<p class="alert alert-danger">{{error_email}}</p>
+						<p class="alert alert-danger frame-alert">{{error_email}}</p>
 						{% endif %}
 
 					</div>
@@ -29,7 +29,7 @@
 						<label for="password">Mot de passe</label>
 						<input class="form-control" id="password" name="password" required="true" placeholder="Votre mot de passe" type="password">
 						{% if error_password %}
-						<p class="alert alert-danger">{{error_password}}</p>
+						<p class="alert alert-danger frame-alert">{{error_password}}</p>
 						{% endif %}
 					</div>
 
@@ -37,7 +37,7 @@
 						<label for="confirmation">Confirmation du mot de passe</label>
 						<input class="form-control" id="confirmation" name="confirmation" required="true" placeholder="Confirmation du mot de passe" type="password">
 						{% if error_confirmation %}
-						<p class="alert alert-danger">{{error_confirmation}}</p>
+						<p class="alert alert-danger frame-alert">{{error_confirmation}}</p>
 						{% endif %}
 					</div>
 					
