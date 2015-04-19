@@ -9,22 +9,28 @@
 			</div>
 
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				{% if auth %}
 				<ul class="nav navbar-nav">
 					<li><a href="#"><span class="glyphicon glyphicon-send nav-glyphicon"></span> Publier une tâche</a></li>
 				</ul>
+				{% endif %}
 				<ul class="nav navbar-nav navbar-right navbar-nav-orange">
+					{% if auth %}
 					<li>
-						<a href="#"> <span class="glyphicon glyphicon-user nav-glyphicon"></span> Bonjour Quentin !</a>
-					</lI>
+						<a href="#"> <span class="glyphicon glyphicon-user nav-glyphicon"></span> Bonjour {{login}}</a>
+					</li>
+					<li>
+						<a href="/logout"><span class="glyphicon glyphicon-off nav-glyphicon"></span> Log out</a>
+					</li>
+					{% else %}
 					<li class>
-						<a href="#"><span class="glyphicon glyphicon-log-in nav-glyphicon"></span> Log in</a>
+						<a href="/login"><span class="glyphicon glyphicon-log-in nav-glyphicon"></span> Log in</a>
 					</li>
 					<li>
-						<a href="#"><span class="glyphicon glyphicon-edit nav-glyphicon"></span> Sign up</a>
+						<a href="/signup"><span class="glyphicon glyphicon-edit nav-glyphicon"></span> Sign up</a>
 					</li>
-					<li>
-						<a href="#"><span class="glyphicon glyphicon-off nav-glyphicon"></span> Log out</a>
-					</li>
+					{% endif %}
+
 				</ul>
 			</div>
 		</nav>
