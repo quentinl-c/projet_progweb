@@ -26,11 +26,13 @@ from register import Register
 from login import Login
 from logout import Logout
 from front import Front
+from addTask import AddTask
 
 
 app = webapp2.WSGIApplication([
 	('/', Front),
 	('/signup', Register),
 	('/login', Login),
-	('/logout', Logout)
+	('/logout', Logout),
+	('/addTask', AddTask)
 ], debug=True)
