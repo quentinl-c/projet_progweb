@@ -22,15 +22,17 @@ class AddTask(Handler):
 		self.title = self.request.get("title")
 		self.comment = self.request.get("comment")
 		self.sameAd = self.request.get("sameAd")
+		LoginID = str(self.request.cookies.get("userId")).split('|')[0]
+		if LoginID!=None:
+			creatorLoginID=int(LoginID)
 		if self.sameAd:
-			LoginID = str(self.request.cookies.get("userId")).split('|')[0]
-			if LoginID!=None:
-				creatorLoginID=int(LoginID)
-				self.address = User.get_by_id(creatorLoginID).address
+			self.address = User.get_by_id(creatorLoginID).address
 		else:
 			self.address = self.request.get("address")
-		self.date = datetime.datetime.strptime(self.request.get("date"), "%Y-%m-%d")
-		date = self.date.date().isoformat()
+			if self.address == "":
+				self.address=None
+		self.date=self.request.get("date")
+		
 
 		params = dict(title = self.title,
 					  comment = self.comment,
@@ -48,12 +50,15 @@ class AddTask(Handler):
 		if self.date == "":
 			params["error_date"] = "La tache n'a pas de date."
 			have_error = True
+		else:
+			self.date = datetime.datetime.strptime(self.request.get("date"), "%Y-%m-%d")
+			#date = self.date.date().isoformat()
 
 		if have_error :
 			self.render("addTask.html", **params)
 		else:
 			
-			if creatorLoginID!=None:
+			if creatorLoginID != None:
 				creatorLoginID=int(creatorLoginID)
 				creatorLogin = User.get_by_id(creatorLoginID).login
 				self.response.write(str(self.date))
