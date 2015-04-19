@@ -6,39 +6,35 @@
 		<div class="col-md-12 column">
 			<div class="jumbotron">
 				<img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
-				
 				<form method="post" class="" role="form">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Titre</label>
+						<label for="title">Titre</label>
 						<input class="form-control" id="title" name="title" placeholder="Titre" type="text" {% if title %}value={{title}}{% endif %}>
 						{% if error_title %}
 						<p class="alert alert-danger frame-alert">{{error_title}}</p>
 						{% endif %}
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Description</label>
-
+						<label for="comment">Description</label>
 						<textarea class="form-control" rows="5" id="comment" name="comment" placeholder="Votre description" >{% if comment %}{{comment}}{% endif %}</textarea>
 						{% if error_comment %}
 						<p class="alert alert-danger frame-alert">{{error_comment}}</p>
 						{% endif %}
 					</div>
 					<div class="form-group">
-						<label for="exampleInputDateTime1">Date</label>
-
+						<label for="date">Date</label>
 						<input type="date" class="form-control" id="date" name="date" {% if date %}value={{date}}{% endif %}>
 						{% if error_date %}
 						<p class="alert alert-danger frame-alert">{{error_date}}</p>
 						{% endif %}
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Adresse</label>
-						<input type="checkbox" name="sameAd">Adresse déjà enregistrée</input>
+						<label for="address">Adresse</label>
+						<input type="checkbox" id="sameAd" name="sameAd">Adresse déjà enregistrée</input>
 						<input class="form-control" id="address" placeholder="7 rue de Fleurus, Paris, France" type="text">
 					</div>
 					<button type="submit" class="btn btn-orange">Publier</button>
 				</form>
-				
 			</div>
 		</div>
 	</div>
