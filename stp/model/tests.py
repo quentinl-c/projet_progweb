@@ -44,8 +44,8 @@ class MainHandler(webapp2.RequestHandler):
 		newTaskOfferID=TaskOffer.create(title=self.title, content=self.content, creatorLogin = self.creatorLogin, date = self.date, private = self.private, address=self.address)
 		taskOf=TaskOffer.get_by_id(newTaskOfferID)
 		self.response.write("<p>title : "+taskOf.title +", content : "+ taskOf.content + ", creatorLogin : "+ taskOf.creatorLogin+"</p>")
-		for tasks in TaskOffer.findByTitle(self.title):
-			self.response.write("<p>title : "+tasks.title +", content : "+ tasks.content + ", creatorLogin : "+ tasks.creatorLogin+"</p>")
+		# for tasks in TaskOffer.findByTitle(self.title):
+		# 	self.response.write("<p>title : "+tasks.title +", content : "+ tasks.content + ", creatorLogin : "+ tasks.creatorLogin+"</p>")
 
 
 		#test task
@@ -56,8 +56,19 @@ class MainHandler(webapp2.RequestHandler):
 
 		newTaskID=Task.create(taskOfferId=self.taskOfferId, providerLogin=self.providerLogin, done=self.done, accepted=self.accepted)
 		task=Task.get_by_id(newTaskID)
-		self.response.write("<p>taskOfferId : "+str(task.taskOfferId) +", providerLogin : "+ task.providerLogin + ", done : "+ str(task.done)+"</p>")
-		for tasks in Task.findByTaskOfferId(self.taskOfferId):
-			self.response.write("<p>taskOfferId : "+str(tasks.taskOfferId) +", providerLogin : "+ tasks.providerLogin + ", done : "+ str(tasks.done)+"</p>")
+		# self.response.write("<p>taskOfferId : "+str(task.taskOfferId) +", providerLogin : "+ task.providerLogin + ", done : "+ str(task.done)+"</p>")
+		# for tasks in Task.findByTaskOfferId(self.taskOfferId):
+		# 	self.response.write("<p>taskOfferId : "+str(tasks.taskOfferId) +", providerLogin : "+ tasks.providerLogin + ", done : "+ str(tasks.done)+"</p>")
+
+		self.newtitle="Ranger ma chambreuuuuuux"
+		self.newcontent="On peut ranger ma chambreuuuuuux sivous plait ?"
+		self.newcreatorLogin=self.login
+		self.newdate=date.today()
+		self.newprivate=True
+		self.newaddress="11 rue Punta Vendredi"
+
+		newnewTaskOfferID = TaskOffer.create(title=self.newtitle, content=self.newcontent, creatorLogin = self.newcreatorLogin, date = self.newdate, private = self.newprivate, address=self.newaddress)
+		for task in Task.findByproviderLogin(self.login):
+			print task.title
 
 app = webapp2.WSGIApplication([('/', MainHandler)], debug=True)
