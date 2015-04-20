@@ -26,11 +26,15 @@ from register import Register
 from login import Login
 from logout import Logout
 from front import Front
+from profil import Profil
+from userInfo import UserInfo
 
 
 app = webapp2.WSGIApplication([
 	('/', Front),
 	('/signup', Register),
 	('/login', Login),
-	('/logout', Logout)
+	('/logout', Logout),
+	('/profil', Profil),
+	('/userInfo', UserInfo)
 ], debug=True)
