@@ -1,5 +1,7 @@
 from google.appengine.ext import db
 
+from TaskOffer import TaskOffer
+
 class Task(db.Model):
 	taskOfferId = db.IntegerProperty(required=True)
 	providerLogin = db.StringProperty(required=True)
@@ -18,4 +20,11 @@ class Task(db.Model):
 
 	@classmethod
 	def findByproviderLogin(cls, providerLogin):
-		return db.GqlQuery("SELECT * FROM Task WHERE providerLogin = \'%s\'" % providerLogin).get()
+		tasks = db.GqlQuery("SELECT * FROM Task WHERE providerLogin = \'%s\'" % providerLogin).run()
+		l = []
+		for task in tasks:
+			taskOffer = TaskOffer.get_by_id(int(task.taskOfferId))
+			t = (taskOffer.title, task.done, task.accepted)
+			l.append(t)
+		return l
+		
