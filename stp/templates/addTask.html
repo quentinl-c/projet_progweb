@@ -31,7 +31,7 @@
 					<div class="form-group">
 						<label for="address">Adresse</label>
 						<input type="checkbox" id="sameAd" name="sameAd">Adresse déjà enregistrée</input>
-						<input class="form-control" id="address" placeholder="7 rue de Fleurus, Paris, France" type="text">
+						<input class="form-control" id="address" name="address" placeholder="7 rue de Fleurus, Paris, France" type="text"{% if address %}value={{address}}{% endif %}>
 					</div>
 					<button type="submit" class="btn btn-orange">Publier</button>
 				</form>

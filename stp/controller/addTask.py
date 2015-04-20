@@ -26,13 +26,14 @@ class AddTask(Handler):
 			address = User.get_by_id(int(creatorID)).address
 		else:
 			address = self.request.get("address")
-			if address == "":
+			if not address:
 				address = None
 		date = self.request.get("date")
 
 		params = dict(title = title,
 					  comment = comment,
-					  date = date)
+					  date = date,
+					  address = address)
 		have_error = False
 
 		if not title :
