@@ -10,47 +10,65 @@
 				<form method="post" class="" role="form">
 					<div class="form-group">
 						<label for="login">Login</label>
-						<input class="form-control" id="login" value="{{login}}" placeholder="Votre Login" type="text">
+						<input class="form-control" id="login" name="login" value="{{login}}" placeholder="Votre Login" type="text">
 					</div>
 					<div class="form-group">
 						<label for="email">Adresse email</label>
-						<input class="form-control" id="email" value="{{email}}" placeholder="Enter email" type="email">
+						<input class="form-control" id="email" name="email" value="{{email}}" placeholder="Votre email" type="email">
+					</div>
+					<div class="row clearfix">
+						<div class="col-md-6 column">
+							<div class="form-group">
+								<label for="firstName">Prénom</label>
+								<input class="form-control" id="firstName" name="firstName" placeholder="Votre prenom" type="text" {% if firstName %}value="{{firstName}}"{% endif %}>
+							</div>
+						</div>
+						<div class="col-md-6 column">
+							<div class="form-group">
+								<label for="lastName">Nom de famille</label>
+								<input class="form-control" id="lastName" name="lastName" placeholder="Votre nom de famille" type="text" {% if lastName %}value="{{lastName}}"{% endif %}>
+							</div>
+						</div>
 					</div>
 					<div class="form-group">
-						<label for="address">Adresse </label>
-						<input class="form-control" id="address" placeholder="Votre adresse" type="text" {% if address %}value="{{address}}"{% endif %}>
+						<label for="phoneNumber">Téléphone</label>
+						<input class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Votre numero de telephone" type="text" {% if phoneNumber %}value="{{phoneNumber}}"{% endif %}>
+					</div>
+					<div class="form-group">
+						<label for="address">Adresse</label>
+						<input class="form-control" id="address" name="address" placeholder="Votre adresse" type="text" {% if address %}value="{{address}}"{% endif %}>
 					</div>
 					<div class="row clearfix">
 						<div class="col-md-4 column">
 							<div class="form-group">
 								<label for="day">Jour de naissance</label>
-								<input class="form-control" id="day" placeholder="01" type="text" {% if day %}value="{{day}}"{% endif %}>
+								<input class="form-control" id="day" name="day" placeholder="01" type="text" {% if day %}value="{{day}}"{% endif %}>
 							</div>
 						</div>
 						<div class="col-md-4 column">
 							<div class="form-group">
 								<label for="month">Mois de naissance</label>
-								<input class="form-control" id="month" placeholder="11" type="text" {% if month %}value="{{month}}" {% endif %}>
+								<input class="form-control" id="month" name="month" placeholder="11" type="text" {% if month %}value="{{month}}" {% endif %}>
 							</div>
 						</div>
 						<div class="col-md-4 column">
 							<div class="form-group">
 								<label for="year">Année de naissance</label>
-								<input class="form-control" id="year" placeholder="1999" type="text" {% if year %}value="{{year}}"{% endif %}>
+								<input class="form-control" id="year" name="year" placeholder="1999" type="text" {% if year %}value="{{year}}"{% endif %}>
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="password">Ancien mot de passe</label>
-						<input class="form-control" id="password" placeholder="Votre mot de passe actuel" type="password">
+						<input class="form-control" id="password" name="password" placeholder="Votre mot de passe actuel" type="password">
 					</div>
 					<div class="form-group">
 						<label for="new_password">Nouveau mot de passe</label>
-						<input class="form-control" id="new_password" placeholder="Votre nouveau mot de passe" type="password">
+						<input class="form-control" id="new_password" name="new_password" placeholder="Votre nouveau mot de passe" type="password">
 					</div>
 					<div class="form-group">
 						<label for="confirmation">Confirmation du nouveau mot de passe</label>
-						<input class="form-control" id="confirmation" placeholder="Confirmation du nouveau mot de passe" type="password">
+						<input class="form-control" id="confirmation" name="confirmation" placeholder="Confirmation du nouveau mot de passe" type="password">
 					</div>
 					
 					<button type="submit" class="btn btn-orange">Enregistrer</button>
