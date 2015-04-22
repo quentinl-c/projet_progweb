@@ -9,16 +9,16 @@
 		<div class="jumbotron">
 			<h2>Informations personnelles</h2>
 			<div class="row">
-				<div class="col-md-6 column">
-					<p>Nom : {{lastName}}</p>
-					<p>Prénom : {{firstName}}</p>
-					<p>Email : {{email}}</p>
-					<p>Date de naissance : {{birthDate}}</p>
+				<div class="col-md-6 col-xs-12 column">
+					<p>Nom : {{ lastName }}</p>
+					<p>Prénom : {{ firstName }}</p>
+					<p>Email : {{ email }}</p>
+					<p>Date de naissance : {{ birthDate }}</p>
 				</div>
-				<div class="col-md-6 column">
-					<p>Adresse : {{address}}</p>
-					<p>Numéro de téléphone : {{phoneNumber}}</p>
-					<p>Points : {{points}}</p>
+				<div class="col-md-6 col-xs-12 column">
+					<p>Adresse : {{ address }}</p>
+					<p>Numéro de téléphone : {{ phoneNumber }}</p>
+					<p>Points : {{ points }}</p>
 					<a href="/userInfo">Modifier les informations personnelles</a>
 				</div>
 			</div>
@@ -40,8 +40,9 @@
 							<th>Panneau de contrôle</th>
 						</tr>
 					</thead>
+					
+					{% for task in taskOffer %}
 					<tbody>
-						{% for task in taskOffer %}
 						<tr>
 							<td>task.title</td>
 							<td>tasK.date</td>
@@ -51,7 +52,7 @@
 					{% endfor %}
 				</table>
 				{% else %}
-				<p>N'ésitez pas à publier une tâche !<p>
+				<p>N'hésitez pas à publier une tâche !<p>
 				<p><a href="#">Publier une tâche</a></p>
 				{% endif %}
 			</div>

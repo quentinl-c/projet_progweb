@@ -5,49 +5,32 @@ from Task import Task
 
 import cookie
 
-
 class Profil(Handler):
 
 	def get(self):
-		if cookie.is_valid_and_secure(self, "userId") :
-			userId = cookie.read_secure(self, "userId")
-			user = User.get_by_id(int(userId))
-			login = user.login
+		if not(cookie.is_valid_and_secure(self, "userId")) :
+			self.redirect('/login')
 
-			params = dict(login = login,
-				email = user.email,
-				points = user.points)
+		userId = cookie.read_secure(self, "userId")
+		user = User.get_by_id(int(userId))
 
-			if user.lastName == None :
-				params["lastName"] = "Non renseigne"
-			else :
-				params["lastName"] = user.name
+		params = dict(login = user.login,
+			email = user.email,
+			points = user.points)
 
-			if user.firstName == None :
-				params["firstName"] = "Non renseigne"
-			else:
-				params["firstName"] = user.firstName
+		params["lastName"] = get_or_default(user.lastName)
+		params["firstName"] = get_or_default(user.firstName)
+		params["phoneNumber"] = get_or_default(user.phoneNumber)
+		params["address"] = get_or_default(user.address)
+		params["birthDate"] = str(get_or_default(user.birthDate))
 
-			if user.phoneNumber == None :
-				params["phoneNumber"] = "Non renseigne"
-			else :
-				params["phoneNumber"] = user.phoneNumber
+		params["taskOffer"] = TaskOffer.findByCreator(userId)
+		params["task"] = Task.findByproviderLogin(user.login) 
 
-			if user.address == None :
-				params["address"] = "Non renseigne"
-			else :
-				params["address"] = user.address
+		self.render("profil.html", auth = True, **params)
 
-			if user.birthDate == None :
-				params["birthDate"] = "Non renseigne"
-			else :
-				params["birthDate"] = str(user.birthDate)
-
-
-			params["taskOffer"] = TaskOffer.findByCreator(userId)
-
-			params["task"] = Task.findByproviderLogin(login) 
-
-			self.render("profil.html", auth = True, **params)
-		else:
-			self.render("front.html", auth = False, login = None)
+def get_or_default(param) :
+	if param == None :
+		return "Non renseigne(e)"
+	else :
+		return param
