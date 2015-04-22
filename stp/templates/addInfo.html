@@ -7,49 +7,53 @@
 			<div class="jumbotron">
 				<img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
 				
-				<form class="" role="form">
+				<form method="post" class="" role="form">
 					<div class="form-group">
-						<label for="exampleInputEmail1">Login</label>
-						<input class="form-control" id="login" placeholder="Votre Login" type="text">
+						<label for="login">Login</label>
+						<input class="form-control" id="login" value="{{login}}" placeholder="Votre Login" type="text">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Adresse email</label>
-						<input class="form-control" id="email" placeholder="Enter email" type="email">
+						<label for="email">Adresse email</label>
+						<input class="form-control" id="email" value="{{email}}" placeholder="Enter email" type="email">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputEmail1">Adresse </label>
-						<input class="form-control" id="address" placeholder="Votre adresse" type="text">
+						<label for="address">Adresse </label>
+						<input class="form-control" id="address" placeholder="Votre adresse" type="text" {% if address %}value="{{address}}"{% endif %}>
 					</div>
 					<div class="row clearfix">
 						<div class="col-md-4 column">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Jour de naissance</label>
-								<input class="form-control" id="day" placeholder="01" type="text">
+								<label for="day">Jour de naissance</label>
+								<input class="form-control" id="day" placeholder="01" type="text" {% if day %}value="{{day}}"{% endif %}>
 							</div>
 						</div>
 						<div class="col-md-4 column">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Mois de naissance</label>
-								<input class="form-control" id="month" placeholder="11" type="text">
+								<label for="month">Mois de naissance</label>
+								<input class="form-control" id="month" placeholder="11" type="text" {% if month %}value="{{month}}" {% endif %}>
 							</div>
 						</div>
 						<div class="col-md-4 column">
 							<div class="form-group">
-								<label for="exampleInputEmail1">Année de naissance</label>
-								<input class="form-control" id="year" placeholder="1999" type="text">
+								<label for="year">Année de naissance</label>
+								<input class="form-control" id="year" placeholder="1999" type="text" {% if year %}value="{{year}}"{% endif %}>
 							</div>
 						</div>
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Mot de passe</label>
-						<input class="form-control" id="password" placeholder="Password" type="password">
+						<label for="password">Ancien mot de passe</label>
+						<input class="form-control" id="password" placeholder="Votre mot de passe actuel" type="password">
 					</div>
 					<div class="form-group">
-						<label for="exampleInputPassword1">Confirmation du mot de passe</label>
-						<input class="form-control" id="confirmation" placeholder="Confirmation du mot de passe" type="password">
+						<label for="new_password">Nouveau mot de passe</label>
+						<input class="form-control" id="new_password" placeholder="Votre nouveau mot de passe" type="password">
+					</div>
+					<div class="form-group">
+						<label for="confirmation">Confirmation du nouveau mot de passe</label>
+						<input class="form-control" id="confirmation" placeholder="Confirmation du nouveau mot de passe" type="password">
 					</div>
 					
-					<button type="submit" class="btn btn-orange">S'enregistrer</button>
+					<button type="submit" class="btn btn-orange">Enregistrer</button>
 				</form>
 				
 			</div>
