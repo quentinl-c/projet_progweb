@@ -47,8 +47,12 @@ class AddTask(Handler):
 		if not date :
 			params["error_date"] = "La tache n'a pas de date."
 			have_error = True
-		else:
-			date = datetime.datetime.strptime(date, "%Y-%m-%d")
+		else :
+			try :
+				date = datetime.datetime.strptime(date, "%Y-%m-%d")
+			except ValueError as e:
+				params["error_date"] = "La date de la tache n'est pas dans un format correct."
+				have_error = True
 			#TODO : test the date is correct (ie not in the past)
 			#date = date.date().isoformat()
 
