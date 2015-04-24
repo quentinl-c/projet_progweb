@@ -5,7 +5,7 @@ from TaskOffer import TaskOffer
 from user import User
 from cookie import read_secure, is_valid_and_secure
 
-import datetime
+from datetime import datetime
 
 class AddTask(Handler):
 	def get(self):
@@ -49,12 +49,13 @@ class AddTask(Handler):
 			have_error = True
 		else :
 			try :
-				date = datetime.datetime.strptime(date, "%Y-%m-%d")
+				date = datetime.strptime(date, "%Y-%m-%d")
+				if datetime.today().date() > date.date() :
+					params["error_date"] = "La date doit etre dans le futur. [insert any reference to Back to the Future here]"
+					have_error = True
 			except ValueError as e:
 				params["error_date"] = "La date de la tache n'est pas dans un format correct."
 				have_error = True
-			#TODO : test the date is correct (ie not in the past)
-			#date = date.date().isoformat()
 
 		if have_error :
 			self.render("addTask.html", **params)
