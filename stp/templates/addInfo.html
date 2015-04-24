@@ -8,6 +8,11 @@
 				<img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
 				
 				<form method="post" class="" role="form">
+					{% if global_error %}
+					<div class="form-group">
+						<p class="alert alert-danger frame-alert">{{global_error}}</p>
+					</div>
+					{% endif %}
 					<div class="form-group">
 						<label for="login">Login</label>
 						<input class="form-control" id="login" name="login" value="{{login}}" placeholder="Votre Login" type="text">
@@ -15,6 +20,9 @@
 					<div class="form-group">
 						<label for="email">Adresse email</label>
 						<input class="form-control" id="email" name="email" value="{{email}}" placeholder="Votre email" type="email">
+						{% if error_email %}
+						<p class="alert alert-danger frame-alert">{{error_email}}</p>
+						{% endif %}
 					</div>
 					<div class="row clearfix">
 						<div class="col-md-6 column">
@@ -32,31 +40,18 @@
 					</div>
 					<div class="form-group">
 						<label for="phoneNumber">Téléphone</label>
-						<input class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Votre numero de telephone" type="text" {% if phoneNumber %}value="{{phoneNumber}}"{% endif %}>
+						<input class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Votre numero de telephone" type="tel" {% if phoneNumber %}value="{{phoneNumber}}"{% endif %}>
 					</div>
 					<div class="form-group">
 						<label for="address">Adresse</label>
 						<input class="form-control" id="address" name="address" placeholder="Votre adresse" type="text" {% if address %}value="{{address}}"{% endif %}>
 					</div>
-					<div class="row clearfix">
-						<div class="col-md-4 column">
-							<div class="form-group">
-								<label for="day">Jour de naissance</label>
-								<input class="form-control" id="day" name="day" placeholder="01" type="text" {% if day %}value="{{day}}"{% endif %}>
-							</div>
-						</div>
-						<div class="col-md-4 column">
-							<div class="form-group">
-								<label for="month">Mois de naissance</label>
-								<input class="form-control" id="month" name="month" placeholder="11" type="text" {% if month %}value="{{month}}" {% endif %}>
-							</div>
-						</div>
-						<div class="col-md-4 column">
-							<div class="form-group">
-								<label for="year">Année de naissance</label>
-								<input class="form-control" id="year" name="year" placeholder="1999" type="text" {% if year %}value="{{year}}"{% endif %}>
-							</div>
-						</div>
+					<div class="form-group">
+						<label for="birthday">Date de naissance</label>
+						<input class="form-control" id="birthday" name="birthday" type="date" {% if date %}value="{{date}}"{% endif %}>
+						{% if error_date %}
+						<p class="alert alert-danger frame-alert">{{error_date}}</p>
+						{% endif %}
 					</div>
 					<div class="form-group">
 						<label for="password">Ancien mot de passe</label>
