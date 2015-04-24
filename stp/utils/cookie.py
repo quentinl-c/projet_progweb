@@ -7,7 +7,7 @@ def set_secure(handler, name, val):
 
 def is_valid_and_secure(handler, name):
 	cookie_val = handler.request.cookies.get(name)
-	return cookie_val and hash.read_secure_val(cookie_val)
+	return bool(cookie_val) and bool(hash.read_secure_val(cookie_val))
 
 def read_secure(handler, cookie_name):
 	return hash.read_secure_val(handler.request.cookies.get(cookie_name))
