@@ -23,5 +23,5 @@ app = webapp2.WSGIApplication([
 	('/profil', Profil),
 	('/userInfo', UserInfo),
 	('/addTask', AddTask),
-	('/task/(\d+)', TaskDashboard)
+	('/taskDashboard/(\d+)', TaskDashboard)
 ], debug=True)
