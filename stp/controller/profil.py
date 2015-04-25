@@ -24,12 +24,14 @@ class Profil(Handler):
 		params["firstName"] = opt(user.firstName, "Non renseigne(e)")
 		params["phoneNumber"] = opt(user.phoneNumber, "Non renseigne(e)")
 		params["address"] = opt(user.address, "Non renseigne(e)")
+
 		if (user.birthDate == None):
 			params["birthDate"] = "Non renseigne(e)"
 		else :
 			params["birthDate"] = str(user.birthDate.date())
 
-		params["taskOffer"] = TaskOffer.findByCreator(userId)
+		params["taskOffer"] = TaskOffer.findByCreator(user.login)
+
 		params["task"] = Task.findByproviderLogin(user.login) 
 
 		self.render("profil.html", auth = True, **params)

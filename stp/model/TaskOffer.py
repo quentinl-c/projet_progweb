@@ -16,7 +16,7 @@ class TaskOffer(db.Model):
 
 	@classmethod
 	def findByCreator(cls, creatorLogin):
-		return db.GqlQuery("SELECT * FROM TaskOffer WHERE creatorLogin = \'%s\'" % creatorLogin).get()
+		return db.GqlQuery("SELECT * FROM TaskOffer WHERE creatorLogin = \'%s\'" % creatorLogin).run()
 
 	@classmethod
 	def findByTitle(cls, title):
