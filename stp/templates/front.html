@@ -38,7 +38,7 @@
 		{% for task in tasks %}
 		<div class="panel panel-default">
 			<div class="panel-heading">
-				<h3 class="header-panel"><a href="#">{{task.title}}</a></h3>
+				<h3 class="header-panel"><a href="/task/{{task.key().id()}}">{{task.title}}</a></h3>
 			</div>
 			<div class="panel-body">
 				<p>{{task.content}}</p>
