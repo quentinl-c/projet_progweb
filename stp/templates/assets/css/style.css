@@ -122,3 +122,23 @@ html, body, #map-canvas {
 	padding: 5px;
 	font-size: 15px;
 }
+.margin-ten {
+	margin: 10px;
+}
+
+.margin-twenty {
+	margin: 20px;
+}
+
+.link-orange {
+	color: #fb6730;
+}
+
+.link-orange:hover {
+	color: #BF3E11;
+}
+.white-background {
+	background-color: white;
+	padding: 10px;
+	border-radius: 5px;
+}

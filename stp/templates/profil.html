@@ -40,16 +40,15 @@
 							<th>Panneau de contrôle</th>
 						</tr>
 					</thead>
-					
-					{% for task in taskOffer %}
 					<tbody>
+						{% for task in taskOffer %}
 						<tr>
 							<td>{{task.title}}</td>
 							<td>{{task.date}}</td>
-							<td><a href="#">Configuration</a></td>
+							<td><a href="/task/{{task.key().id()}}">Configurer</a></td>
 						</tr>
+						{% endfor %}
 					</tbody>
-					{% endfor %}
 				</table>
 				{% else %}
 				<p>N'hésitez pas à publier une tâche !<p>

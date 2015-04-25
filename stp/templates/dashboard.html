@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row clearfix first-row">
+	<div class="col-md-12 column">
+		<div class="page-header">
+			<h1>Panneau de configuration</h1>
+		</div>
+		<div class="jumbotron">
+			<div class="tabbable" id="tabs-366849"> <!-- Only required for left/right tabs -->
+				<ul class="nav nav-tabs">
+					<li class="active"><a class = "link-orange" href="#presentation" data-toggle="tab" contenteditable="true">Visualiser la publication</a></li>
+					<li><a class = "link-orange" href="#form" data-toggle="tab" contenteditable="true">Modifier la tâche</a></li>
+					<li><a class = "link-orange" href="#provider" data-toggle="tab" contenteditable="true">Les propositions</a></li>
+				</ul>
+				<div class="tab-content">
+					<div class="tab-pane active" id="presentation">
+						{% if global_error %}
+						<div class="alert alert-danger margin-ten" role="alert"><p>{{global_error}}</p></div>
+						{% else %}
+						{% if private %}
+						<div class="alert alert-warning margin-ten" role="alert"><p>Cette tâche n'est pas publibée, vous pouvez le faire en modifiant la tâche</p></div>
+						{% else %}
+						<div class="alert alert-success margin-ten" role="alert"><p>Cette tâche est publiée, toutes les informations dernièrement saisies ont bien été enregistrées</p></div>
+						{% endif %}
+						{% endif %}
+
+						<h2>{{title}} <small> Le {{date}} à {{address}} </small></h2>
+						<p class = "white-background">
+							<strong>Description : </strong><br>
+							{{content}}
+						</p>
+					</div>
+					<div class="tab-pane" id="form">
+						<form method="post" class="" role="form">
+							<div class="form-group">
+								<label for="title">Titre</label>
+								<input class="form-control" id="title" name="title" placeholder="Titre" type="text" {% if title %}value={{title}}{% endif %}>
+								{% if error_title %}
+								<p class="alert alert-danger frame-alert">{{error_title}}</p>
+								{% endif %}
+							</div>
+							<div class="form-group">
+								<label for="content">Description</label>
+								<textarea class="form-control" rows="5" id="comment" name="content" placeholder="Votre description" >{% if content %}{{content}}{% endif %}</textarea>
+								{% if error_comment %}
+								<p class="alert alert-danger frame-alert">{{error_content}}</p>
+								{% endif %}
+							</div>
+							<div class="form-group">
+								<label for="date">Date</label>
+								<input type="date" class="form-control" id="date" name="date" {% if date %}value={{date}}{% endif %}>
+								{% if error_date %}
+								<p class="alert alert-danger frame-alert">{{error_date}}</p>
+								{% endif %}
+							</div>
+							<div class="form-group">
+								<label for="address">Adresse</label>
+								<input class="form-control" id="address" name="address" placeholder="7 rue de Fleurus, Paris, France" type="text"{% if address %}value={{address}}{% endif %}>
+								<label for="sameAd">Adresse déjà enregistrée</label>
+								<input type="checkbox" id="sameAd" name="sameAd"></input>
+							</div>
+							<div class="form-group">
+								<label for="private">Retirer de la publication</label>
+								<input type="checkbox" id="private" name="private" {% if private %} checked="checked"{% endif %}></input>
+							</div>
+							<button type="submit" class="btn btn-orange">Enregistrer</button>
+						</form>
+					</div>
+					<div class="tab-pane " id="provider">
+						{% if providers %}
+						<table class="table">
+					<thead>
+						<tr>
+							<th>Nom des participants</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for p in providers %}
+						<tr>
+							<td>{{p.providerLogin}}</td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+						{% else %}
+						<div class="alert alert-warning margin-ten" role="alert"><p>Personne ne s'est encore proposé pour cette tâche </p></div>
+						{% endif %}
+					</div>
+				</div>
+			</div>
+
+			
+		</div>
+	</div>
+</div>
+
+{% endblock %}

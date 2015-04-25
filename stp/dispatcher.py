@@ -13,6 +13,7 @@ from front import Front
 from profil import Profil
 from userInfo import UserInfo
 from addTask import AddTask
+from taskDashboard import TaskDashboard
 
 app = webapp2.WSGIApplication([
 	('/', Front),
@@ -21,5 +22,6 @@ app = webapp2.WSGIApplication([
 	('/logout', Logout),
 	('/profil', Profil),
 	('/userInfo', UserInfo),
-	('/addTask', AddTask)
+	('/addTask', AddTask),
+	('/task/(\d+)', TaskDashboard)
 ], debug=True)
