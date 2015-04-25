@@ -42,6 +42,7 @@ class UserInfo(Handler):
 		date = self.request.get("birthday")
 
 		have_error = False
+		date_error = False
 
 		params = dict(login = user.login)
 
@@ -70,6 +71,7 @@ class UserInfo(Handler):
  			except ValueError as e:
  				params["error_date"] = "La date de naissance n'est pas dans un format correct."
  				have_error = True
+ 				date_error = True
 		if not(have_error):
 			user.put()
 			self.redirect('/profil')
@@ -80,5 +82,8 @@ class UserInfo(Handler):
 			params["firstName"] = opt(firstName, user.firstName)
 			params["phoneNumber"] = opt(phoneNumber, user.phoneNumber)
 			params["address"] = opt(address, user.address)
-			params["birthday"] = str(opt(date, (opt(user.birthDate, ""))))
+
+			if not date_error:
+				params["birthday"] = str(opt(date, (opt(user.birthDate, ""))))
+			
 			self.render("addInfo.html", auth=True, **params)
