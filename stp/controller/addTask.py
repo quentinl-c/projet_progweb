@@ -10,7 +10,7 @@ from datetime import datetime
 class AddTask(Handler):
 	def get(self):
 		if is_valid_and_secure(self, "userId") :
-			self.render("addtask.html")
+			self.render("addTask.html")
 		else :
 			self.redirect('/login')
 
