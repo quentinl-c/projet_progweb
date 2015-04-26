@@ -11,7 +11,7 @@ class TaskPanel(Handler):
 		if task == None :
 			self.redirect('/')
 			return
-		params = dict(aut = False,
+		params = dict(auth = False,
 			login = None,
 			title = task.title,
 			creator = task.creatorLogin,
@@ -23,7 +23,4 @@ class TaskPanel(Handler):
 			user = User.get_by_id(int(userId))
 			params["auth"] = True
 			params["login"] = user.login
-			self.render("task.html", **params)
-
-
-
+		self.render("task.html", **params)
