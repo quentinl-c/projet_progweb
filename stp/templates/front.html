@@ -41,9 +41,9 @@
 				<h3 class="header-panel"><a href="/task/{{task.key().id()}}">{{task.title}}</a></h3>
 			</div>
 			<div class="panel-body">
-				<p>{{task.content}}</p>
+				<p>{{task.content | safe}}</p>
 			</div>
-			<div class="panel-footer"><em><a href="#" class="author-panel">Publié par : {{task.creatorLogin}}</a> Le {{task.date}}</em></div>
+			<div class="panel-footer"><em><a href="#" class="author-panel">Publié par : {{task.creatorLogin}}</a> Pour le {{task.date}}</em></div>
 		</div>
 		{% endfor %}
 	</div>
