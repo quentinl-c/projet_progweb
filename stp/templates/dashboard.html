@@ -26,7 +26,7 @@
 						{% endif %}
 						{% endif %}
 
-						<h2>{{title}} <small> Le {{date}} à {{address}} </small></h2>
+						<h2>{{title}} <small> Le {{date}} {% if address %} à {{address}} {% endif %} </small></h2>
 						<p class = "white-background">
 							<strong>Description : </strong><br>
 							{{content}}
