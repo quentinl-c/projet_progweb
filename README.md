@@ -6,7 +6,7 @@ Une version est déployée sur un serveur google, vous pouvez la retrouver à l'
 ##Fonctionnalités de la dernière release
 
 * Sign up
-* log in/out
+* Log in/out
 * Publication d'une tâche
 * Modification d'une tâche publiée
 * Visualisation des informations personnelles
