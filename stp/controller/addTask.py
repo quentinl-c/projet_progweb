@@ -15,22 +15,24 @@ class AddTask(Handler):
 			self.redirect('/login')
 
 	def post(self):
-		creatorID = read_secure(self, "userId")
 		if not is_valid_and_secure(self, "userId") :
 			redirect('/login')
 		creatorID = read_secure(self, "userId")
+		user = User.get_by_id(int(creatorID))
 		title = self.request.get("title")
 		comment = self.request.get("comment")
 		sameAd = self.request.get("sameAd")
 		if sameAd:
-			address = User.get_by_id(int(creatorID)).address
+			address = user.address
 		else:
 			address = self.request.get("address")
 			if not address:
 				address = None
 		date = self.request.get("date")
 
-		params = dict(title = title,
+		params = dict(login = user.login,
+					  auth = True,
+					  title = title,
 					  comment = comment,
 					  date = date,
 					  address = address)

@@ -12,7 +12,7 @@ class Login(Handler):
 		if cookie.is_valid_and_secure(self, "userId"):
 			self.redirect('/')
 		else :
-			self.render("login.html")
+			self.render("login.html", auth = False, login = None)
 
 	def post(self):
 		if cookie.is_valid_and_secure(self, "userId"):
@@ -43,6 +43,8 @@ class Login(Handler):
 				params["error_login"] = "Le login ou le mot de passe pas bien forme."
 
 			if have_error :
+				params["auth"] = True
+				params["login"] = None
 				self.render("login.html", **params)
 			else:
 				cookie.set_secure(self, "userId", str(user.key().id()))

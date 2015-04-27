@@ -1,76 +1,75 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 
-{% block main %}
-<div class="container">
-	<div class="row clearfix first-row">
-		<div class="col-md-12 column">
-			<div class="jumbotron">
-				<img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
-				
-				<form method="post" class="" role="form">
-					{% if global_error %}
-					<div class="form-group">
-						<p class="alert alert-danger frame-alert">{{global_error}}</p>
-					</div>
+{% block content %}
+<div class="row clearfix first-row">
+	<div class="col-md-12 column">
+		<div class="jumbotron">
+			<img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
+			
+			<form method="post" class="" role="form">
+				{% if global_error %}
+				<div class="form-group">
+					<p class="alert alert-danger frame-alert">{{global_error}}</p>
+				</div>
+				{% endif %}
+				<div class="form-group">
+					<label for="login">Login</label>
+					<input class="form-control" id="login" name="login" value="{{login}}" placeholder="Votre Login" type="text">
+				</div>
+				<div class="form-group">
+					<label for="email">Adresse email</label>
+					<input class="form-control" id="email" name="email" value="{{email}}" placeholder="Votre email" type="email">
+					{% if error_email %}
+					<p class="alert alert-danger frame-alert">{{error_email}}</p>
 					{% endif %}
-					<div class="form-group">
-						<label for="login">Login</label>
-						<input class="form-control" id="login" name="login" value="{{login}}" placeholder="Votre Login" type="text">
-					</div>
-					<div class="form-group">
-						<label for="email">Adresse email</label>
-						<input class="form-control" id="email" name="email" value="{{email}}" placeholder="Votre email" type="email">
-						{% if error_email %}
-						<p class="alert alert-danger frame-alert">{{error_email}}</p>
-						{% endif %}
-					</div>
-					<div class="row clearfix">
-						<div class="col-md-6 column">
-							<div class="form-group">
-								<label for="firstName">Prénom</label>
-								<input class="form-control" id="firstName" name="firstName" placeholder="Votre prenom" type="text" {% if firstName %}value="{{firstName}}"{% endif %}>
-							</div>
-						</div>
-						<div class="col-md-6 column">
-							<div class="form-group">
-								<label for="lastName">Nom de famille</label>
-								<input class="form-control" id="lastName" name="lastName" placeholder="Votre nom de famille" type="text" {% if lastName %}value="{{lastName}}"{% endif %}>
-							</div>
+				</div>
+				<div class="row clearfix">
+					<div class="col-md-6 column">
+						<div class="form-group">
+							<label for="firstName">Prénom</label>
+							<input class="form-control" id="firstName" name="firstName" placeholder="Votre prenom" type="text" {% if firstName %}value="{{firstName}}"{% endif %}>
 						</div>
 					</div>
-					<div class="form-group">
-						<label for="phoneNumber">Téléphone</label>
-						<input class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Votre numero de telephone" type="tel" {% if phoneNumber %}value="{{phoneNumber}}"{% endif %}>
+					<div class="col-md-6 column">
+						<div class="form-group">
+							<label for="lastName">Nom de famille</label>
+							<input class="form-control" id="lastName" name="lastName" placeholder="Votre nom de famille" type="text" {% if lastName %}value="{{lastName}}"{% endif %}>
+						</div>
 					</div>
-					<div class="form-group">
-						<label for="address">Adresse</label>
-						<input class="form-control" id="address" name="address" placeholder="Votre adresse" type="text" {% if address %}value="{{address}}"{% endif %}>
-					</div>
-					<div class="form-group">
-						<label for="birthday">Date de naissance</label>
-						<input class="form-control" id="birthday" name="birthday" type="date" placeholder = "aaaa-mm-jj" {% if date %}value="{{date}}"{% endif %}>
-						{% if error_date %}
-						<p class="alert alert-danger frame-alert">{{error_date}}</p>
-						{% endif %}
-					</div>
-					<div class="form-group">
-						<label for="password">Ancien mot de passe</label>
-						<input class="form-control" id="password" name="password" placeholder="Votre mot de passe actuel" type="password">
-					</div>
-					<div class="form-group">
-						<label for="new_password">Nouveau mot de passe</label>
-						<input class="form-control" id="new_password" name="new_password" placeholder="Votre nouveau mot de passe" type="password">
-					</div>
-					<div class="form-group">
-						<label for="confirmation">Confirmation du nouveau mot de passe</label>
-						<input class="form-control" id="confirmation" name="confirmation" placeholder="Confirmation du nouveau mot de passe" type="password">
-					</div>
-					
-					<button type="submit" class="btn btn-orange">Enregistrer</button>
-				</form>
+				</div>
+				<div class="form-group">
+					<label for="phoneNumber">Téléphone</label>
+					<input class="form-control" id="phoneNumber" name="phoneNumber" placeholder="Votre numero de telephone" type="tel" {% if phoneNumber %}value="{{phoneNumber}}"{% endif %}>
+				</div>
+				<div class="form-group">
+					<label for="address">Adresse</label>
+					<input class="form-control" id="address" name="address" placeholder="Votre adresse" type="text" {% if address %}value="{{address}}"{% endif %}>
+				</div>
+				<div class="form-group">
+					<label for="birthday">Date de naissance</label>
+					<input class="form-control" id="birthday" name="birthday" type="date" placeholder = "aaaa-mm-jj" {% if date %}value="{{date}}"{% endif %}>
+					{% if error_date %}
+					<p class="alert alert-danger frame-alert">{{error_date}}</p>
+					{% endif %}
+				</div>
+				<div class="form-group">
+					<label for="password">Ancien mot de passe</label>
+					<input class="form-control" id="password" name="password" placeholder="Votre mot de passe actuel" type="password">
+				</div>
+				<div class="form-group">
+					<label for="new_password">Nouveau mot de passe</label>
+					<input class="form-control" id="new_password" name="new_password" placeholder="Votre nouveau mot de passe" type="password">
+				</div>
+				<div class="form-group">
+					<label for="confirmation">Confirmation du nouveau mot de passe</label>
+					<input class="form-control" id="confirmation" name="confirmation" placeholder="Confirmation du nouveau mot de passe" type="password">
+				</div>
 				
-			</div>
+				<button type="submit" class="btn btn-orange">Enregistrer</button>
+			</form>
+			
 		</div>
 	</div>
 </div>
+
 {% endblock %}

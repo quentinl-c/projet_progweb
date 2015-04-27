@@ -1,28 +1,27 @@
-{% extends "layout.html" %}
+{% extends "base.html" %}
 
-{% block main %}
-<div class="container">
-	<div class="row clearfix first-row">
-		<div class="col-md-12 column">
-			<div class="jumbotron">
-				<a href="/"><img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/></a>
-				<form method="post" class="form-signin">
-					<h2 class="form-signin-heading">Connecte-toi </h2>
-					
-					<label for="inputLogin" class="sr-only">Login</label>
-					<input id="inputLogin" name="login" class="form-control" placeholder="login" required="true" autofocus="true">
-					{% if error_login %}
-					<p class="alert alert-danger frame-alert">{{error_login}}</p>
-					{% endif %}
-					
-					<label for="inputPassword" class="sr-only">Mot de passe</label>
-					<input id="inputPassword" name="password" class="form-control" placeholder="mot de passe" required="true" type="password">
-					{% if error_password %}
-					<p class="alert alert-danger frame-alert">{{error_password}}</p>
-					{% endif %}
-					<button class="btn btn-lg btn-orange btn-block" type="submit">Se connecter</button>
-				</form>
-			</div>
+{% block content %}
+
+<div class="row clearfix first-row">
+	<div class="col-md-12 column">
+		<div class="jumbotron">
+			<a href="/"><img src="assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/></a>
+			<form method="post" class="form-signin">
+				<h2 class="form-signin-heading">Connecte-toi </h2>
+				
+				<label for="inputLogin" class="sr-only">Login</label>
+				<input id="inputLogin" name="login" class="form-control" placeholder="login" required="true" autofocus="true">
+				{% if error_login %}
+				<p class="alert alert-danger frame-alert">{{error_login}}</p>
+				{% endif %}
+				
+				<label for="inputPassword" class="sr-only">Mot de passe</label>
+				<input id="inputPassword" name="password" class="form-control" placeholder="mot de passe" required="true" type="password">
+				{% if error_password %}
+				<p class="alert alert-danger frame-alert">{{error_password}}</p>
+				{% endif %}
+				<button class="btn btn-lg btn-orange btn-block" type="submit">Se connecter</button>
+			</form>
 		</div>
 	</div>
 </div>
