@@ -21,8 +21,13 @@
 		<div class="col-md-12 column">
 			<div class="btn-group btn-group-justified btn-gp" role="group" aria-label="Justified button group">
 			{% if auth %}
-				<a href="#" class="btn btn-default" role="button">Je dois me désister</a>
-				<a href="#" class="btn btn-orange" role="button">Je participe</a>
+				{% if accepted %}
+					<a href="#" class="btn btn-default" role="button">Je dois me désister</a>
+					<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button" disabled="disabled">Je participe</a>
+				{% else %}
+					<a href="#" class="btn btn-default" role="button" disabled="disabled">Je dois me désister</a>
+					<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button">Je participe</a>
+				{% endif %}
 			{% else %}
 				<a href="/login" class="btn btn-default" role="button">Connectez-vous pour participer !</a>
 			{% endif %}
