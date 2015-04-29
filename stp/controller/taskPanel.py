@@ -26,7 +26,8 @@ class TaskPanel(Handler):
 			title = task.title,
 			creator = task.creatorLogin,
 			content = task.content,
-			date = task.date
+			date = task.date,
+			address = task.address
 			)
 		if is_valid_and_secure(self, "userId"):
 			userId = read_secure(self, "userId")

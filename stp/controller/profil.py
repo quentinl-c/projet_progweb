@@ -32,6 +32,10 @@ class Profil(Handler):
 
 		params["taskOffer"] = TaskOffer.findByCreator(user.login)
 
-		params["task"] = Task.findByproviderLogin(user.login) 
+		l=[]
+		for t in Task.findByproviderLogin(user.login):
+			idf=t.taskOfferId
+			l.append(TaskOffer.get_by_id(int(idf)))
+		params["task"] = l
 
 		self.render("profil.html", auth = True, **params)

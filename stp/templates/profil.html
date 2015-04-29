@@ -71,11 +71,13 @@
 						</tr>
 					</thead>
 					<tbody>
+						{% for t in task %}
 						<tr>
-							<td>Column content</td>
-							<td>Column content</td>
-							<td><a href="">Column content</a></td>
+							<td>{{t.title}}</td>
+							<td>{{t.date}}</td>
+							<td><a href="/task/{{t.key().id()}}">plus d'informations</a></td>
 						</tr>
+						{% endfor %}
 					</tbody>
 				</table>
 				{% else %}
