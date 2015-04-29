@@ -4,7 +4,7 @@ from TaskOffer import TaskOffer
 from Task import Task
 from user import User
 
-class AcceptTask(Handler):
+class CancelTask(Handler):
 
 	def get(self, id):
 
@@ -14,7 +14,12 @@ class AcceptTask(Handler):
 			userId = read_secure(self, "userId")
 			user = User.get_by_id(int(userId))
 
-			Task.create(int(id), user.login, False, True)
+			taskOf = Task.findByTaskOfferId(int(id))
+
+			for task in taskOf :
+				if task.providerLogin == user.login:
+					task.delete()
+
 
 			#self.redirect("/task/"+str(id))
 			self.redirect("/")

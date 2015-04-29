@@ -16,6 +16,7 @@ from addTask import AddTask
 from taskDashboard import TaskDashboard
 from taskPanel import TaskPanel
 from acceptTask import AcceptTask
+from cancelTask import CancelTask
 
 app = webapp2.WSGIApplication([
 	('/', Front),
@@ -27,5 +28,6 @@ app = webapp2.WSGIApplication([
 	('/addTask', AddTask),
 	('/taskDashboard/(\d+)', TaskDashboard),
 	('/task/(\d+)', TaskPanel),
-	('/acceptTask/(\d+)', AcceptTask)
+	('/acceptTask/(\d+)', AcceptTask),
+	('/cancelTask/(\d+)', CancelTask)
 ], debug=True)

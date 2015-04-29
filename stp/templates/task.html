@@ -22,7 +22,7 @@
 			<div class="btn-group btn-group-justified btn-gp" role="group" aria-label="Justified button group">
 			{% if auth %}
 				{% if accepted %}
-					<a href="#" class="btn btn-default" role="button">Je dois me désister</a>
+					<a href="/cancelTask/{{id}}" class="btn btn-default" role="button">Je dois me désister</a>
 					<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button" disabled="disabled">Je participe</a>
 				{% else %}
 					<a href="#" class="btn btn-default" role="button" disabled="disabled">Je dois me désister</a>

@@ -36,7 +36,7 @@
 						<form method="post" class="" role="form">
 							<div class="form-group">
 								<label for="title">Titre</label>
-								<input class="form-control" id="title" name="title" placeholder="Titre" type="text" {% if title %}value={{title}}{% endif %}>
+								<input class="form-control" id="title" name="title" placeholder="Titre" type="text" {% if title %}value="{{title}}"{% endif %}>
 								{% if error_title %}
 								<p class="alert alert-danger frame-alert">{{error_title}}</p>
 								{% endif %}
@@ -57,7 +57,7 @@
 							</div>
 							<div class="form-group">
 								<label for="address">Adresse</label>
-								<input class="form-control" id="address" name="address" placeholder="7 rue de Fleurus, Paris, France" type="text"{% if address %}value={{address}}{% endif %}>
+								<input class="form-control" id="address" name="address" placeholder="7 rue de Fleurus, Paris, France" type="text"{% if address %}value="{{address}}"{% endif %}>
 								<label for="sameAd">Adresse déjà enregistrée</label>
 								<input type="checkbox" id="sameAd" name="sameAd"></input>
 							</div>
