@@ -10,25 +10,26 @@ class TaskPanel(Handler):
 		task = TaskOffer.get_by_id(int(id))
 
 		tasks = Task.findByTaskOfferId(id)
-		userId = read_secure(self, "userId")
-		user = User.get_by_id(int(userId))
+		if is_valid_and_secure(self, "userId"):
+			userId = read_secure(self, "userId")
+			user = User.get_by_id(int(userId))
 
-		accepted = False
-		for t in tasks :
-			if t.providerLogin == user.login :
-				accepted = True
+			accepted = False
+			for t in tasks :
+				if t.providerLogin == user.login :
+					accepted = True
 
-		if task == None :
-			self.redirect('/')
-			return
+			if task == None :
+				self.redirect('/')
+				return
 		params = dict(auth = False,
-			login = None,
-			title = task.title,
-			creator = task.creatorLogin,
-			content = task.content,
-			date = task.date,
-			address = task.address
-			)
+				login = None,
+				title = task.title,
+				creator = task.creatorLogin,
+				content = task.content,
+				date = task.date,
+				address = task.address
+				)
 		if is_valid_and_secure(self, "userId"):
 			userId = read_secure(self, "userId")
 			user = User.get_by_id(int(userId))
