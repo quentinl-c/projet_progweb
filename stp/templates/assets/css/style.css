@@ -146,3 +146,8 @@ html, body, #map-canvas {
 	padding: 10px;
 	border-radius: 5px;
 }
+
+.key {
+	color: #DD4814;
+	background-color: #F5F5F5;
+}
