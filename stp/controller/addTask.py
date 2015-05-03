@@ -10,13 +10,16 @@ from datetime import datetime
 class AddTask(Handler):
 	def get(self):
 		if is_valid_and_secure(self, "userId") :
-			self.render("addTask.html")
+			userId = read_secure(self, "userId")
+			user = User.get_by_id(int(userId))
+			self.render("addTask.html", auth=True, login =user.login)
 		else :
 			self.redirect('/login')
 
 	def post(self):
 		if not is_valid_and_secure(self, "userId") :
-			redirect('/login')
+			self.redirect('/login')
+			return
 		creatorID = read_secure(self, "userId")
 		user = User.get_by_id(int(creatorID))
 		title = self.request.get("title")
