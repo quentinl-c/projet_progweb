@@ -14,10 +14,10 @@ class DevPanel(Handler):
 			return
 
 		devId = cookie.read_secure(self, "devId")
-		dev = Api.get_by_id(int(devId))
+		dev   = Api.get_by_id(int(devId))
 
 		params = dict(login = dev.login,
-			email = dev.email,
+			email  = dev.email,
 			apiKey = dev.api_key)
 
 		self.render("DevPanel.html", auth = True, **params)

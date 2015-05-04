@@ -18,10 +18,10 @@ class DevLogin(Handler):
 		if cookie.is_valid_and_secure(self, "devId"):
 			self.redirect('/')
 		else :
-			login = self.request.get("login")
+			login    = self.request.get("login")
 			password = self.request.get("password")
-
-			params = dict()
+			
+			params     = dict()
 			have_error = False
 
 			if not login :

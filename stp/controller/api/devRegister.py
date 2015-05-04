@@ -44,4 +44,4 @@ class DevRegister(Handler):
 		else:
 			devId = Api.create(login, password, email)
 			cookie.set_secure(self, "devId", str(devId))
-			self.redirect("/api/panel")
+			self.redirect("/api/devPanel")
