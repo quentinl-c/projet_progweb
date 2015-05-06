@@ -14,6 +14,8 @@ class DevLogin(Handler):
 		else :
 			self.render("devLogin.html")
 
+
+
 	def post(self):
 		if cookie.is_valid_and_secure(self, "devId"):
 			self.redirect('/')

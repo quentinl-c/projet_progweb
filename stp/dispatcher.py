@@ -20,7 +20,7 @@ from devRegister import DevRegister
 from devPanel import DevPanel
 from devLogin import DevLogin
 from devLogout import DevLogout
-from getLastTasks import GetLastTasks
+from getTasks import GetTasks
  
 app = webapp2.WSGIApplication([
 	('/', Front),
@@ -36,5 +36,5 @@ app = webapp2.WSGIApplication([
 	('/api/devPanel', DevPanel),
 	('/api/devLogin', DevLogin),
 	('/api/devLogout', DevLogout),
-	('/api/getLastTasks', GetLastTasks)
+	('/api/tasks', GetTasks)
 ], debug=True)

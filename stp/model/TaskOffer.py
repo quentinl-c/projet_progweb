@@ -20,4 +20,4 @@ class TaskOffer(db.Model):
 
 	@classmethod
 	def findByTitle(cls, title):
-		return db.GqlQuery("SELECT * FROM TaskOffer WHERE title = \'%s\'" % title).get()
+		return db.GqlQuery("SELECT * FROM TaskOffer WHERE title = \'%s\'" % title).run()

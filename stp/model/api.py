@@ -21,4 +21,4 @@ class Api(db.Model):
 
 	@classmethod
 	def findByKey(cls, key):
-		return db.GqlQuery("SELECT * FROM Api WHERE api_key = \'%s\'" % login).get()
+		return db.GqlQuery("SELECT * FROM Api WHERE api_key = \'%s\'" % key).get()
