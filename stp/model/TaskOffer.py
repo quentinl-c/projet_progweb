@@ -1,12 +1,12 @@
 from google.appengine.ext import db
 
 class TaskOffer(db.Model):
-	title = db.StringProperty(required=True)
-	content = db.TextProperty(required=True)
+	title        = db.StringProperty(required=True)
+	content      = db.TextProperty(required=True)
 	creatorLogin = db.StringProperty(required=True)
-	date = db.DateProperty(required=True)
-	private = db.BooleanProperty(required=True)
-	address = db.StringProperty(required=False)
+	date         = db.DateProperty(required=True)
+	private      = db.BooleanProperty(required=True)
+	address      = db.StringProperty(required=False)
 
 	@classmethod
 	def create(cls, title, content, creatorLogin, date, private, address=None):
