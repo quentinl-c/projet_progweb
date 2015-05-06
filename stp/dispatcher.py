@@ -22,6 +22,7 @@ from devLogin import DevLogin
 from devLogout import DevLogout
 from getTasks import GetTasks
 from auth import Auth
+from error404 import handler404
  
 app = webapp2.WSGIApplication([
 	('/', Front),
@@ -40,3 +41,4 @@ app = webapp2.WSGIApplication([
 	('/api/tasks', GetTasks),
 	('/api/auth', Auth)
 ], debug=True)
+app.error_handlers[404] = handler404
