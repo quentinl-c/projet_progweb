@@ -80,6 +80,11 @@
 						{% for p in providers %}
 						<tr>
 							<td>{{p.providerLogin}}</td>
+							{% if p.accepted != True %}
+							<td><a href="/cancelTask/{{p.taskOfferId}}">Supprimer</a></td>
+							<td><a href="/acceptProvider/{{p.taskOfferId}}">Valider</a><td>
+							{% endif %}
+							
 						</tr>
 						{% endfor %}
 					</tbody>

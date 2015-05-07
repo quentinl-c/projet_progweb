@@ -14,7 +14,7 @@ class AcceptTask(Handler):
 			userId = read_secure(self, "userId")
 			user = User.get_by_id(int(userId))
 
-			Task.create(int(id), user.login, False, True)
+			Task.create(int(id), user.login, False, False)
 
 			#self.redirect("/task/"+str(id))
 			self.redirect("/")
