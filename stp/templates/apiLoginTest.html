@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block main %}
+<div id="wrap">
+	<div class="container">
+		<div class="row clearfix first-row">
+			<div class="col-md-12 column">
+				<div class="jumbotron">
+					<a href="/"><img src="/assets/img/header4.png" class="img-responsive image-header" alt="S'il Te Plait"/></a>
+					<form method="post" class="form-signin">
+						<h2 class="form-signin-heading">Test de l'API </h2>
+
+						<label for="inputLogin" class="sr-only">Login</label>
+						<input id="inputLogin" name="login" class="form-control" placeholder="login" required="true" autofocus="true">
+
+						<label for="inputPassword" class="sr-only">Mot de passe</label>
+						<input id="inputPassword" name="password" class="form-control" placeholder="mot de passe" required="true" type="password">
+
+						<button class="btn btn-lg btn-orange btn-block" type="submit">Test la connection à distance</button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

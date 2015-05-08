@@ -151,3 +151,8 @@ html, body, #map-canvas {
 	color: #DD4814;
 	background-color: #F5F5F5;
 }
+
+.request {
+	color: #606060;
+	background-color: #FBFBFB; 
+}
