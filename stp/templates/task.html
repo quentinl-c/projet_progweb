@@ -12,7 +12,7 @@
 			<div class="panel-body">
 				<p>{{content}}</p>
 				{% if address %}
-				 <address>{{address}}</address>
+				<address>{{address}}</address>
 				{% endif %}
 			</div>
 		</div>
@@ -21,12 +21,16 @@
 		<div class="col-md-12 column">
 			<div class="btn-group btn-group-justified btn-gp" role="group" aria-label="Justified button group">
 			{% if auth %}
-				{% if accepted %}
-					<a href="/cancelTask/{{id}}" class="btn btn-default" role="button">Je dois me désister</a>
-					<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button" disabled="disabled">Je participe</a>
+				{% if not sameLog %}
+					{% if accepted %}
+						<a href="/cancelTask/{{id}}" class="btn btn-default" role="button">Je dois me désister</a>
+						<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button" disabled="disabled">Je participe</a>
+					{% else %}
+						<a href="#" class="btn btn-default" role="button" disabled="disabled">Je dois me désister</a>
+						<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button">Je participe</a>
+					{% endif %}
 				{% else %}
-					<a href="#" class="btn btn-default" role="button" disabled="disabled">Je dois me désister</a>
-					<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button">Je participe</a>
+					<p class="alert alert-danger frame-alert">Vous ne pouvez pas accepter votre propre tache !</p>
 				{% endif %}
 			{% else %}
 				<a href="/login" class="btn btn-default" role="button">Connectez-vous pour participer !</a>

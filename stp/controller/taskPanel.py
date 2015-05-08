@@ -14,6 +14,10 @@ class TaskPanel(Handler):
 			userId = read_secure(self, "userId")
 			user = User.get_by_id(int(userId))
 
+			sameLog=False
+			if task.creatorLogin == user.login:
+				sameLog = True
+
 			accepted = False
 			for t in tasks :
 				if t.providerLogin == user.login :
@@ -37,4 +41,5 @@ class TaskPanel(Handler):
 			params["login"] = user.login
 			params["accepted"] = accepted
 			params["id"]=id
+			params["sameLog"]=sameLog
 		self.render("task.html", **params)
