@@ -4,6 +4,7 @@ from jsonRender import as_dict
 from search import search
 from api import Api
 from jsonData import formatData
+from google.appengine.api import memcache
 
 DEFAULT_VALUE = 10
 
@@ -59,6 +60,7 @@ class GetTasks(Handler):
 						else:
 							break
 					cmp += 1
+				maxl = min(maxl, cmp)
 			else:
 				haveKey = False
 		else:
