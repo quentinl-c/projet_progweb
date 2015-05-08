@@ -18,10 +18,15 @@ class TaskPanel(Handler):
 			if task.creatorLogin == user.login:
 				sameLog = True
 
+			acceptedTask = False
 			accepted = False
 			for t in tasks :
 				if t.providerLogin == user.login :
-					accepted = True
+					acceptedTask = True
+				if t.accepted == True:
+					accepted=True
+
+
 
 			if task == None :
 				self.redirect('/')
@@ -39,7 +44,8 @@ class TaskPanel(Handler):
 			user = User.get_by_id(int(userId))
 			params["auth"] = True
 			params["login"] = user.login
-			params["accepted"] = accepted
+			params["acceptedTask"] = acceptedTask
 			params["id"]=id
 			params["sameLog"]=sameLog
+			params["accepted"]=accepted
 		self.render("task.html", **params)

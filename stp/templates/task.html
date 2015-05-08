@@ -22,9 +22,13 @@
 			<div class="btn-group btn-group-justified btn-gp" role="group" aria-label="Justified button group">
 			{% if auth %}
 				{% if not sameLog %}
-					{% if accepted %}
-						<a href="/cancelTask/{{id}}" class="btn btn-default" role="button">Je dois me désister</a>
-						<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button" disabled="disabled">Je participe</a>
+					{% if acceptedTask %}
+							{% if accepted %}
+								<p class="alert alert-danger frame-alert">Vous avez déjà été accepté pour cette tache !</p>
+							{% else %}
+								<a href="/cancelTask/{{id}}" class="btn btn-default" role="button">Je dois me désister</a>
+								<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button" disabled="disabled">Je participe</a>
+							{% endif %}
 					{% else %}
 						<a href="#" class="btn btn-default" role="button" disabled="disabled">Je dois me désister</a>
 						<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button">Je participe</a>
