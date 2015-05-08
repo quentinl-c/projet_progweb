@@ -3,8 +3,9 @@ from string import letters
 def as_dict(result):
 	time_fmt = '%c'
 	d = {
-	'Title': result.title,
+	'title': result.title,
+	'key' : result.key().id(),
 	'content': result.content,
-	'Author': result.creatorLogin,
-	'Date': result.date.strftime(time_fmt)}
+	'author': result.creatorLogin,
+	'date': str(result.date)}
 	return d
