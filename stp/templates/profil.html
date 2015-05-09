@@ -26,11 +26,11 @@
 	</div>
 </div>
 <div class="row clearfix">
-	<div class="col-md-6 column">
+	<div class="col-md-6 col-lg-12 column">
 		<div class="panel panel-default">
 			<div class="panel-heading"><h4>Tâches publiées</h4></div>
 			<div class="panel-body">
-				{% if taskOffer %}
+				{% if taskOffers %}
 				<table class="table">
 					<thead>
 						<tr>
@@ -41,7 +41,7 @@
 						</tr>
 					</thead>
 					<tbody>
-						{% for task in taskOffer %}
+						{% for task in taskOffers %}
 						<tr>
 							<td>{{task.title}}</td>
 							<td>{{task.date}}</td>
@@ -57,11 +57,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="col-md-6 column">
+	<div class="col-md-6 col-lg-4 column">
 		<div class="panel panel-default">
-			<div class="panel-heading"><h4>Tâches effectuées</h4></div>
+			<div class="panel-heading"><h4>Vous avez proposé d'aider ...</h4></div>
 			<div class="panel-body">
-				{% if task %}
+				{% if tasks %}
 				<table class="table">
 					<thead>
 						<tr>
@@ -71,7 +71,67 @@
 						</tr>
 					</thead>
 					<tbody>
-						{% for t in task %}
+						{% for t in tasks %}
+						<tr>
+							<td>{{t.title}}</td>
+							<td>{{t.date}}</td>
+							<td><a href="/task/{{t.key().id()}}">plus d'informations</a></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% else %}
+				<p>De nombreuses tâches vous attendent, n'hésitez pas à vous proposer</p>
+				<p><a href="/">Voir les tâches publiées</a></p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-lg-4 column">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h4>Tâches que vous pouvez effectuer</h4></div>
+			<div class="panel-body">
+				{% if acceptedTasks %}
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Date</th>
+							<th>Plus d'informations</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for t in acceptedTasks %}
+						<tr>
+							<td>{{t.title}}</td>
+							<td>{{t.date}}</td>
+							<td><a href="/task/{{t.key().id()}}">plus d'informations</a></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+				{% else %}
+				<p>De nombreuses tâches vous attendent, n'hésitez pas à vous proposer</p>
+				<p><a href="/">Voir les tâches publiées</a></p>
+				{% endif %}
+			</div>
+		</div>
+	</div>
+	<div class="col-md-6 col-lg-4 column">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h4>Tâches effectuées</h4></div>
+			<div class="panel-body">
+				{% if doneTasks %}
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Date</th>
+							<th>Plus d'informations</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for t in doneTasks %}
 						<tr>
 							<td>{{t.title}}</td>
 							<td>{{t.date}}</td>

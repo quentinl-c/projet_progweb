@@ -30,12 +30,22 @@ class Profil(Handler):
 		else :
 			params["birthDate"] = str(user.birthDate.date())
 
-		params["taskOffer"] = TaskOffer.findByCreator(user.login)
+		params["taskOffers"] = TaskOffer.findByCreator(user.login)
 
-		l=[]
-		for t in Task.findByproviderLogin(user.login):
-			idf=t.taskOfferId
-			l.append(TaskOffer.get_by_id(int(idf)))
-		params["task"] = l
+		tasks = list()
+		doneTasks = list()
+		acceptedTasks = list()
+		for task in Task.findByproviderLogin(user.login):
+			taskId = task.taskOfferId
+			taskOffer = TaskOffer.get_by_id(int(taskId))
+			if task.done :
+				doneTasks.append(taskOffer)
+			elif task.accepted :
+				acceptedTasks.append(taskOffer)
+			else :
+				tasks.append(taskOffer)
+		params["tasks"] = tasks
+		params["doneTasks"] = doneTasks
+		params["acceptedTasks"] = acceptedTasks
 
 		self.render("profil.html", auth = True, **params)
