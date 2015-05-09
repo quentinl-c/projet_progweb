@@ -121,5 +121,4 @@ class TaskDashboard(Handler):
 			params["title"] = opt(title, task.title)
 			params["content"] = opt(content, task.content)
 			params["providers"] = Task.findByTaskOfferId(int(id))
-			print params["providers"]
 			self.render("dashboard.html", **params)

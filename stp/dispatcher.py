@@ -7,10 +7,10 @@ sys.path.insert(2, 'model')
 sys.path.insert(3, 'controller/api')
 
 from handler import Handler
+from front import Front
 from register import Register
 from login import Login
 from logout import Logout
-from front import Front
 from profil import Profil
 from userInfo import UserInfo
 from addTask import AddTask
@@ -25,7 +25,12 @@ from auth import Auth
 from error404 import handler404
 from apiTest import ApiTest
 from apiFront import ApiFront
- 
+from registerForTask import RegisterForTask
+from cancelTask import CancelTask
+from acceptProvider import AcceptProvider
+from validateTask import ValidateTask
+
+
 app = webapp2.WSGIApplication([
 	('/', Front),
 	('/signup', Register),
@@ -43,6 +48,10 @@ app = webapp2.WSGIApplication([
 	('/api/tasks', GetTasks),
 	('/api/auth', Auth),
 	('/api/test', ApiTest),
-	('/api/front', ApiFront)
+	('/api/front', ApiFront),
+	('/registerForTask/(\d+)', RegisterForTask),
+	('/cancelTask/(\d+)', CancelTask),
+	('/acceptProvider/(\d+)', AcceptProvider),
+	('/validateTask/(\d+)', ValidateTask)
 ], debug=True)
 app.error_handlers[404] = handler404

@@ -23,10 +23,12 @@ class Task(db.Model):
 	def findByproviderLogin(cls, providerLogin):
 		tasks = db.GqlQuery("SELECT * FROM Task WHERE providerLogin = \'%s\'" % providerLogin).run()
 		l = []
-		TasKJoined = namedtuple('task', ['title','done', 'accepted'])
+		TaskJoined = namedtuple('task', ['taskOfferId','title','done', 'accepted'])
 		for task in tasks:
 			taskOffer = TaskOffer.get_by_id(int(task.taskOfferId))
-			t = TasKJoined(taskOffer.title, task.done, task.accepted)
+			t = TaskJoined(task.taskOfferId, taskOffer.title, task.done, task.accepted)
 			l.append(t)
 		return l
 
+	def getTaskOffer(self) :
+		return TaskOffer.get_by_id(self.taskOfferId)
