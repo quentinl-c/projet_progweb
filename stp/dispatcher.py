@@ -19,6 +19,7 @@ from registerForTask import RegisterForTask
 from cancelTask import CancelTask
 from acceptProvider import AcceptProvider
 from validateTask import ValidateTask
+from loginAdmin import LoginAdmin
 
 app = webapp2.WSGIApplication([
 	('/', Front),
@@ -33,5 +34,6 @@ app = webapp2.WSGIApplication([
 	('/registerForTask/(\d+)', RegisterForTask),
 	('/cancelTask/(\d+)', CancelTask),
 	('/acceptProvider/(\d+)', AcceptProvider),
-	('/validateTask/(\d+)', ValidateTask)
+	('/validateTask/(\d+)', ValidateTask),
+	('/admin/login', LoginAdmin)
 ], debug=True)
