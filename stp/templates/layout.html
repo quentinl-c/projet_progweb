@@ -45,4 +45,7 @@
 	{% block main %}
 	{% endblock %}
 </body>
+{% if script %}
+<script type="text/javascript" src="js/{{script}}"></script>
+{% endif %}
 </html>

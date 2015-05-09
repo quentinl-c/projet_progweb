@@ -12,6 +12,9 @@ handlers:
 - url: /assets
   static_dir: templates/assets
 
+- url: /js
+  static_dir: js
+
 - url: .*
   script: dispatcher.app
 

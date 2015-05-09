@@ -34,7 +34,6 @@ class GetTasks(Handler):
 				minl = 0
 				maxl = DEFAULT_VALUE
 
-
 		if limit:
 			try:
 				maxl = int(limit)
@@ -52,18 +51,14 @@ class GetTasks(Handler):
 					tasks = search(filter, query)
 				else:
 					tasks = TaskOffer.all()
+				tasks = list(tasks)
 				cmp = 0
-				for t in tasks:
-					if minl <= cmp:
-						if len(l) < maxl :
-							l.append(as_dict(t))
-						else:
-							break
-					cmp += 1
-				maxl = min(maxl, cmp)
+				last = min(maxl, len(tasks) - 1)
+				for i in range(minl, last + 1):
+					l.append(as_dict(tasks[i]))
 			else:
 				haveKey = False
 		else:
 			haveKey = False
-		data = formatData(l, minl, maxl, haveKey)
+		data = formatData(l, minl, last, haveKey)
 		self.render_json(data)

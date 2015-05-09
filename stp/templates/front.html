@@ -36,7 +36,7 @@
 	</div>
 	<div class="col-md-9 column">
 		{% for task in tasks %}
-		<div class="panel panel-default">
+		<div class="panel panel-default" id="task{{loop.index}}">
 			<div class="panel-heading">
 				<h3 class="header-panel"><a href="/task/{{task.key().id()}}">{{task.title}}</a></h3>
 			</div>
@@ -46,6 +46,10 @@
 			<div class="panel-footer"><em><a href="#" class="author-panel">Publié par : {{task.creatorLogin}}</a> Pour le {{task.date}}</em></div>
 		</div>
 		{% endfor %}
+		<div class="btn-group" role="group">
+			<button type="button" class="btn btn-default" onclick="previousGroupOfTasks()">Tâches précédentes</button>
+			<button type="button" class="btn btn-default" onclick="nextGroupOfTasks()">Tâches suivantes</button>
+		</div>
 	</div>
 </div>
 {% endblock %}

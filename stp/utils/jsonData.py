@@ -2,9 +2,9 @@
 def formatData(l, minl, maxl, haveKey):
 	if haveKey:
 		if len(l) == 0:
-				data = {'noTask' : True}
+			data = {'noTask' : True}
 		else:
-			data = {'start' : minl, 'end' : maxl, 'tasks' : l}
+			data = {'noTask' : False, 'start' : minl, 'end' : maxl, 'tasks' : l}
 	else:
 		data = {'auth' : False}
 	return data
