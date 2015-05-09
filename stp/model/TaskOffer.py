@@ -6,6 +6,7 @@ class TaskOffer(db.Model):
 	creatorLogin = db.StringProperty(required=True)
 	date         = db.DateProperty(required=True)
 	private      = db.BooleanProperty(required=True)
+	created      = db.DateTimeProperty(auto_now_add = True)
 	address      = db.StringProperty(required=False)
 
 	@classmethod
@@ -13,6 +14,10 @@ class TaskOffer(db.Model):
 		taskOffer = TaskOffer(title=title, content=content, creatorLogin=creatorLogin, date=date, private=private, address=address)
 		taskOffer.put()
 		return taskOffer.key().id()
+
+	@classmethod
+	def getPublishedTasks(cls):
+		return db.GqlQuery("SELECT * FROM TaskOffer WHERE private = false ORDER BY created DESC").run()
 
 	@classmethod
 	def findByCreator(cls, creatorLogin):
