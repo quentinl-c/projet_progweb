@@ -2,7 +2,7 @@ from handler import Handler
 from user import User
 from TaskOffer import TaskOffer
 from Task import Task
-
+from cache import frontTasks
 import cookie
 import inputValidation
 from opt import opt
@@ -114,6 +114,7 @@ class TaskDashboard(Handler):
 
 		if not have_error :
 			task.put()
+			frontTasks(True)
 			self.redirect('/task/' + str(id))
 		else :
 			params["global_error"] = "Erreur : vos modifications n'ont pu etre enregistrees."

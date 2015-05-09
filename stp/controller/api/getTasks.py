@@ -4,7 +4,7 @@ from jsonRender import as_dict
 from search import search
 from api import Api
 from jsonData import formatData
-from google.appengine.api import memcache
+from cache import frontTasks
 
 DEFAULT_VALUE = 10
 
@@ -50,7 +50,7 @@ class GetTasks(Handler):
 				if searchMode:
 					tasks = search(filter, query)
 				else:
-					tasks = TaskOffer.all()
+					tasks = frontTasks()
 				tasks = list(tasks)
 				cmp = 0
 				last = min(maxl, len(tasks) - 1)

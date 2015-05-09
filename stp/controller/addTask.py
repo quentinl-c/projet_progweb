@@ -4,8 +4,9 @@ from handler import Handler
 from TaskOffer import TaskOffer
 from user import User
 from cookie import read_secure, is_valid_and_secure
-
+from cache import frontTasks
 from datetime import datetime
+import time
 
 class AddTask(Handler):
 	def get(self):
@@ -64,5 +65,6 @@ class AddTask(Handler):
 		else:
 			creatorLogin = User.get_by_id(int(creatorID)).login
 			TaskOffer.create(title, comment, creatorLogin, date.date(), False, address)
+			frontTasks(update = True)
 			self.redirect('/')
 
