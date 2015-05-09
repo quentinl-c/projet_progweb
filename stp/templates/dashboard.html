@@ -20,7 +20,7 @@
 						<div class="alert alert-danger margin-ten" role="alert"><p>{{global_error}}</p></div>
 						{% else %}
 						{% if private %}
-						<div class="alert alert-warning margin-ten" role="alert"><p>Cette tâche n'est pas publibée, vous pouvez le faire en modifiant la tâche</p></div>
+						<div class="alert alert-warning margin-ten" role="alert"><p>Cette tâche n'est pas publiée, vous pouvez le faire en modifiant la tâche</p></div>
 						{% else %}
 						<div class="alert alert-success margin-ten" role="alert"><p>Cette tâche est publiée, toutes les informations dernièrement saisies ont bien été enregistrées</p></div>
 						{% endif %}
@@ -31,6 +31,7 @@
 							<strong>Description : </strong><br>
 							{{content}}
 						</p>
+						<a href="/deleteTaskOffer/{{taskOfferId}}" class="btn btn-danger" role="button">Supprimer cette tâche</a>
 					</div>
 					<div class="tab-pane" id="form">
 						<form method="post" class="" role="form">

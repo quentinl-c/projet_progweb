@@ -14,7 +14,7 @@ from logout import Logout
 from profil import Profil
 from userInfo import UserInfo
 from addTask import AddTask
-from taskDashboard import TaskDashboard
+from taskDashboard import TaskDashboard, DeleteTaskOffer
 from taskPanel import TaskPanel
 from devRegister import DevRegister
 from devPanel import DevPanel
@@ -40,6 +40,7 @@ app = webapp2.WSGIApplication([
 	('/userInfo', UserInfo),
 	('/addTask', AddTask),
 	('/taskDashboard/(\d+)', TaskDashboard),
+	('/deleteTaskOffer/(\d+)', DeleteTaskOffer),
 	('/task/(\d+)', TaskPanel),
 	('/api/register', DevRegister),
 	('/api/devPanel', DevPanel),

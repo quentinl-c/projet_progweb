@@ -34,7 +34,8 @@ class TaskDashboard(Handler):
 			title = task.title,
 			content = task.content,
 			date = task.date,
-			private = task.private)
+			private = task.private,
+			taskOfferId = id)
 
 		params["address"] = opt(task.address, task.address)
 		params["providers"] = Task.findByTaskOfferId(int(id))
@@ -75,7 +76,8 @@ class TaskDashboard(Handler):
 		have_error = False
 
 		params = dict(auth = True,
-			login = user.login)
+			login = user.login,
+			taskOfferId = id)
 
 		if title :
 			task.title = title
@@ -122,3 +124,29 @@ class TaskDashboard(Handler):
 			params["content"] = opt(content, task.content)
 			params["providers"] = Task.findByTaskOfferId(int(id))
 			self.render("dashboard.html", **params)
+
+class DeleteTaskOffer(Handler) :
+	def get(self, taskOfferId):
+		if not cookie.is_valid_and_secure(self, "userId") :
+			self.redirect('/')
+			return
+
+		taskOffer = TaskOffer.get_by_id(int(taskOfferId))
+
+		if taskOffer == None:
+			self.redirect('/')
+			return
+
+		userId = cookie.read_secure(self, "userId")
+		user = User.get_by_id(int(userId))
+
+		if taskOffer.creatorLogin != user.login:
+			self.redirect('/')
+			return
+		
+		tasks = Task.findByTaskOfferId(taskOfferId)
+		for task in tasks :
+			task.delete()
+		taskOffer.delete()
+		
+		self.redirect('/profil')
