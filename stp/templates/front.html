@@ -43,7 +43,7 @@
 			<div class="panel-body">
 				<p>{{task.content | safe}}</p>
 			</div>
-			<div class="panel-footer"><em><a href="#" class="author-panel">Publié par : {{task.creatorLogin}}</a> Pour le {{task.date}}</em></div>
+			<div class="panel-footer"><em><a href="displayProfil/{{task.creatorId}}" class="author-panel">Publié par : {{task.creatorLogin}}</a> Pour le {{task.date}}</em></div>
 		</div>
 		{% endfor %}
 		<div class="btn-group" role="group">

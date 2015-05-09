@@ -7,6 +7,7 @@ def frontTasks(update = False):
 	tasks = memcache.get(key)
 	if tasks is None or update:
 		tasks = TaskOffer.getPublishedTasks()
+		print tasks
 		tasks = list(tasks)
 		memcache.set(key, tasks)
 

@@ -66,8 +66,10 @@ class AddTask(Handler):
 		if have_error :
 			self.render("addTask.html", **params)
 		else:
-			creatorLogin = User.get_by_id(int(creatorID)).login
-			TaskOffer.create(title, comment, creatorLogin, date.date(), False, address)
+			author = User.get_by_id(int(creatorID))
+			creatorLogin = author.login
+			creatorId = str(author.key().id())
+			TaskOffer.create(title, comment, creatorLogin, creatorId, date.date(), False, address)
 			frontTasks(update = True)
 			self.redirect('/')
 

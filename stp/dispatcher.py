@@ -29,6 +29,7 @@ from registerForTask import RegisterForTask
 from cancelTask import CancelTask
 from acceptProvider import AcceptProvider
 from validateTask import ValidateTask
+from displayProfil import DisplayProfil
 
 
 app = webapp2.WSGIApplication([
@@ -41,6 +42,7 @@ app = webapp2.WSGIApplication([
 	('/addTask', AddTask),
 	('/taskDashboard/(\d+)', TaskDashboard),
 	('/task/(\d+)', TaskPanel),
+	('/displayProfil/(\d+)', DisplayProfil),
 	('/api/register', DevRegister),
 	('/api/devPanel', DevPanel),
 	('/api/devLogin', DevLogin),
