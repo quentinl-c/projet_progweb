@@ -19,27 +19,22 @@
 	</div>
 	<div class="row clearfix">
 		<div class="col-md-12 column">
-			<div class="btn-group btn-group-justified btn-gp" role="group" aria-label="Justified button group">
 			{% if auth %}
-				{% if not sameLog %}
-					{% if acceptedTask %}
-							{% if accepted %}
-								<p class="alert alert-danger frame-alert">Vous avez déjà été accepté pour cette tache !</p>
-							{% else %}
-								<a href="/cancelTask/{{id}}" class="btn btn-default" role="button">Je dois me désister</a>
-								<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button" disabled="disabled">Je participe</a>
-							{% endif %}
-					{% else %}
-						<a href="#" class="btn btn-default" role="button" disabled="disabled">Je dois me désister</a>
-						<a href="/acceptTask/{{id}}" class="btn btn-orange" role="button">Je participe</a>
-					{% endif %}
+				{% if doneTask %}
+					<p class="alert alert-success frame-alert">Vous avez effectué cette tâche !</p>
+				{% elif acceptedTask %}
+					<p class="alert alert-success frame-alert">Le demandeur a accepté votre proposition !</p>
+					<a href="/cancelTask/{{taskId}}" class="btn btn-default" role="button">Je dois me désister</a>
+				{% elif isPotentialProvider %}
+					<p class="alert alert-warning frame-alert">Le demandeur n'a pas encore accepté votre proposition !</p>
+					<a href="/cancelTask/{{taskId}}" class="btn btn-default" role="button">Je retire ma proposition</a>
 				{% else %}
-					<p class="alert alert-danger frame-alert">Vous ne pouvez pas accepter votre propre tache !</p>
+					<p class="alert frame-alert">Vous n'avez pas proposé de faire cette tâche</p>
+					<a href="/registerForTask/{{taskOfferId}}" class="btn btn-orange" role="button">Je participe</a>
 				{% endif %}
 			{% else %}
 				<a href="/login" class="btn btn-default" role="button">Connectez-vous pour participer !</a>
 			{% endif %}
-			</div>
 		</div>
 	</div>
 	{% if address %}

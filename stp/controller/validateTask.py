@@ -6,7 +6,7 @@ from Task import Task
 
 from google.appengine.ext import db
 
-class AcceptProvider(Handler):
+class ValidateTask(Handler):
 	def get(self, taskId):
 		if not is_valid_and_secure(self, "userId"):
 			self.redirect('/')
@@ -25,8 +25,9 @@ class AcceptProvider(Handler):
 			self.redirect('/')
 			return
 
-		#provider.points = provider.points + 5
-		#provider.put()
-		task.accepted = True
+		provider = User.findByLogin(task.providerLogin)
+		provider.points += 5
+		provider.put()
+		task.done = True
 		db.put(task)
 		self.redirect("/taskDashboard/" + str(task.taskOfferId))
