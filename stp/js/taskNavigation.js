@@ -1,5 +1,5 @@
 var serverUrl = 'http://localhost:8080';
-var apiKey = "1008bee6bf63f17efe213a5cd3e6fc69bac58c528eb6cc69ef2edb7f5cd666b3";
+var apiKey = "ead76786f6e85a40fcf143885929d7903a2645e123edcf69117074efbf84eef6";
 // The two values above are server dependant !
 
 var numberOfDisplayableTasks = 10;

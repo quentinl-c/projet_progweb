@@ -1,9 +1,12 @@
 from TaskOffer import TaskOffer
 
 def search(filter, query):
+	l = []
 	if filter == "byname":
-		print query
-		tasks = TaskOffer.findByCreator(query)
+		tasks = TaskOffer.findByAuthor(query)
 	else:
 		tasks = TaskOffer.findByTitle(query)
-	return tasks
+	for task in tasks:
+		if not task.private:
+			l.append(task)
+	return l

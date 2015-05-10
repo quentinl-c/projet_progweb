@@ -4,7 +4,7 @@
 <div class="row clearfix first-row">
 	<div class="col-md-12 column">
 		<div class="jumbotron">
-			<img src="/assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
+			<img src="/assets/img/header4.png" class="img-responsive image-header" alt="S'il Te Plait"/>
 			<h2>Découvrez notre API !! </h2>
 			<p>Si vous êtes développeur, vous pouvez utiliser notre API JSON ! Pour cela, il suffit de vous inscrire ! L'inscription est gratuite</p>
 		</div>
@@ -24,7 +24,25 @@
 		</div>
 		<h2>Présentation :</h2>
 		<p>Il est possible de communiquer avec l'application web S'il Te plait et ainsi partager les publications du site web ! Ce service est entièrement gratuit et est très facile d'utilisation. Vous pouvez dialoguer avec l'API, juste en utilisant une URL. Ce tutriel vous explique comment utiliser l'API. Attention, avant d'utiliser l'API vous devez posséder une clé, sans cette clé l'accés aux différents services de l'API vous seront refusés ! Pour obtenir une clé d'API, il vous suffit de vous inscrire gratuitement !</p>
+		<h2>Les différents services proposés :</h2>
+		<p>Grâce à cette API vous avez accès à différents services :</p>
+		<ul>
+			<li>Récupération des tâche publiées</li>
+			<li>Recherche par titre</li>
+			<li>Recherche par auteur</li>
+			<li>Authentification à distances</li>
+		</ul>
+
+		<h2>Comment l'utiliser ?</h2>
+
+		<h3>Récupération des tâches publiées</h3>
+		<p>Pour récupérer l'ensemble des tâches publiée sur le site vous devez utiliser l'extension (après le domaine du site) <em>/api/tasks</em>. Pour des raisons évidentes de sécurité, le nombre de tâches renvoyées est limité à 10 tâches. Cependant différentes options vous permettent de modifier cette valuer par défaut.</p>
+		<h4>Les options proposées :</h4>
+		<ul>
+			<li>limit : permet de fixer un seuil de réception et modifie la valeur par défaut</li>
+			<li>start : permet de définir l'index de début</li>
+			<li>end : permet de définir l'index de de
+		</ul>
 	</div>
-	<h2>Les différents services proposés</h2>
 </div>
 {% endblock %}
