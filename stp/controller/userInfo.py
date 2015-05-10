@@ -74,16 +74,17 @@ class UserInfo(Handler):
  				have_error = True
  				date_error = True
  		if password and newPassword and confirmation:
- 			if inputValidation.valid_password(password):
+ 			if inputValidation.valid_password(password) and inputValidation.valid_password(newPassword) and inputValidation.valid_password(confirmation):
  				if hash.valid_pw(user.login, password, user.password) and newPassword == confirmation :
-					if inputValidation.valid_password(newPassword) and inputValidation.valid_password(confirmation):
-						user.password = hash.make_pw_hash(user.login,newPassword)
-					else: 
-						have_error = True
+					user.password = hash.make_pw_hash(user.login,newPassword)
 				else:
 					have_error = True
 			else :
 				have_error =True
+
+		if not password and newPassword and confirmation:
+			have_error = True
+			params["old_pwd"]="Entrez l'ancien mot de passe"
 
 		if not(have_error):
 			user.put()
