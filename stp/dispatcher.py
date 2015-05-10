@@ -30,8 +30,6 @@ from cancelTask import CancelTask
 from acceptProvider import AcceptProvider
 from validateTask import ValidateTask
 from displayProfil import DisplayProfil
-from searchByTitle import SearchByTitle
-from searchByAuthor import SearchByAuthor
 from loginAdmin import LoginAdmin
 from adminFront import AdminFront
 from deleteUser import DeleteUser
@@ -64,8 +62,6 @@ app = webapp2.WSGIApplication([
 	('/cancelTask/(\d+)', CancelTask),
 	('/acceptProvider/(\d+)', AcceptProvider),
 	('/validateTask/(\d+)', ValidateTask),
-	('/searchByTitle', SearchByTitle),
-	('/searchByAuthor', SearchByAuthor),
 	('/admin/login', LoginAdmin),
 	('/admin', AdminFront),
 	('/admin/deleteTask/(\d+)', DeleteTask),

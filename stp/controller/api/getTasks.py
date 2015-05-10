@@ -44,6 +44,7 @@ class GetTasks(Handler):
 			if filter == "byname" or filter == "bytitle":
 				searchMode = True
 
+		last = 0
 		if key :
 			if Api.findByKey(key) :
 				haveKey = True
