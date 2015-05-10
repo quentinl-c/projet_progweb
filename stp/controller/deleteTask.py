@@ -1,6 +1,7 @@
 from handler import Handler
 from TaskOffer import TaskOffer
 from Task import Task
+from cache import frontTasks
 
 
 class DeleteTask(Handler):
@@ -13,5 +14,5 @@ class DeleteTask(Handler):
 
 		taskOffer = TaskOffer.get_by_id(int(id))
 		taskOffer.delete()
-
+		frontTasks(True)
 		self.redirect('/admin')

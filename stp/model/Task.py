@@ -30,5 +30,9 @@ class Task(db.Model):
 			l.append(t)
 		return l
 
+	@classmethod
+	def findByProvider(cls, providerLogin):
+		return db.GqlQuery("SELECT * FROM Task WHERE providerLogin = \'%s\'" % providerLogin).run()
+
 	def getTaskOffer(self) :
 		return TaskOffer.get_by_id(self.taskOfferId)
