@@ -15,4 +15,4 @@ class Admin(db.Model):
 	
 	@classmethod
 	def findAdminByLogin(cls,login):
-		return db.GqlQuery("SELECT * FROM Admin WHERE login = \'%s\'" % login).get()
+		return db.GqlQuery("SELECT * FROM Admin WHERE login = :login", login=login).get()
