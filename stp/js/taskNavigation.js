@@ -7,12 +7,56 @@ var numberOfDisplayableTasks = 10;
 var taskStartIndex = 0;
 var numberOfDisplayedTasks;
 
+function searchByTitle() {
+	var x = document.forms["searchForm"]["search"].value;
+	requestByTitle(x);
+}
+
+function searchByAuthor() {
+	var x = document.forms["searchForm"]["search"].value;
+	requestByAuthor(x);
+}
+
 function nextGroupOfTasks() {
 	requestGroupOfTasks(taskStartIndex + numberOfDisplayableTasks);
 }
 
 function previousGroupOfTasks() {
 	requestGroupOfTasks(Math.max(taskStartIndex - numberOfDisplayableTasks, 0));
+}
+
+function requestByTitle(query) {
+	startIndex = 0
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener('readystatechange', function() {
+		if (xhr.readyState === xhr.DONE && xhr.status == 200) {
+			var parsedJSON = JSON.parse(xhr.responseText);
+			console.log(parsedJSON);
+			if (!parsedJSON.noTask) {
+				setResult(parsedJSON.tasks, parsedJSON.start, parsedJSON.end);
+			}
+		}
+	}, false);
+	var url = serverUrl + '/api/tasks?key=' + apiKey+ "&filter=bytitle&search=" + query;
+	xhr.open('GET', url, true);
+	xhr.send(null);
+}
+
+function requestByAuthor(query) {
+	startIndex = 0
+	var xhr = new XMLHttpRequest();
+	xhr.addEventListener('readystatechange', function() {
+		if (xhr.readyState === xhr.DONE && xhr.status == 200) {
+			var parsedJSON = JSON.parse(xhr.responseText);
+			console.log(parsedJSON);
+			if (!parsedJSON.noTask) {
+				setResult(parsedJSON.tasks, parsedJSON.start, parsedJSON.end);
+			}
+		}
+	}, false);
+	var url = serverUrl + '/api/tasks?key=' + apiKey+ "&filter=byname&search=" + query;
+	xhr.open('GET', url, true);
+	xhr.send(null);
 }
 
 function requestGroupOfTasks(startIndex) {
@@ -38,6 +82,15 @@ function setTasks(tasks, start, end) {
 		setTaskContent(i, tasks[i - 1]);
 	}
 	displayAllTasks();
+	hideTasksWithIndexStartingAt(numberOfDisplayedTasks + 1);
+}
+
+function setResult(tasks, start, end) {
+	taskStartIndex = start;
+	numberOfDisplayedTasks = end - start + 1;
+	for (i = 1; i <= numberOfDisplayedTasks; i++) {
+		setTaskContent(i, tasks[i - 1]);
+	}
 	hideTasksWithIndexStartingAt(numberOfDisplayedTasks + 1);
 }
 

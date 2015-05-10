@@ -30,6 +30,8 @@ from cancelTask import CancelTask
 from acceptProvider import AcceptProvider
 from validateTask import ValidateTask
 from displayProfil import DisplayProfil
+from searchByTitle import SearchByTitle
+from searchByAuthor import SearchByAuthor
 
 
 app = webapp2.WSGIApplication([
@@ -54,6 +56,8 @@ app = webapp2.WSGIApplication([
 	('/registerForTask/(\d+)', RegisterForTask),
 	('/cancelTask/(\d+)', CancelTask),
 	('/acceptProvider/(\d+)', AcceptProvider),
-	('/validateTask/(\d+)', ValidateTask)
+	('/validateTask/(\d+)', ValidateTask),
+	('/searchByTitle', SearchByTitle),
+	('/searchByAuthor', SearchByAuthor)
 ], debug=True)
 app.error_handlers[404] = handler404

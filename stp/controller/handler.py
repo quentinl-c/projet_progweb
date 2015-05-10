@@ -20,5 +20,6 @@ class Handler(webapp2.RequestHandler):
 
 	def render_json(self, c):
 		json_txt = json.dumps(c)
+		print json_txt
 		self.response.headers['Content-Type'] = 'application/json; charset=UTF-8'
 		self.write(json_txt)
