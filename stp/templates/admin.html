@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row clearfix first-row">
+	<div class="col-md-12 column">
+		<div class="jumbotron">
+			<img src="/assets/img/header3.png" class="img-responsive image-header" alt="S'il Te Plait"/>
+		</div>
+	</div>
+</div>
+<div class="row clearfix">
+	<table>
+	{% for u in users %}
+		<tr>
+			<td>{{u.login}}<td>
+			<td><a href="/admin/deleteUser/{{u.key().id()}}">Supprimer</a></td>
+		</tr>
+	{% endfor %}
+	</table>
+	<table>
+		<thead>
+			<tr>
+				<th>Titre</th>
+				<th>Date</th>
+				<th>Panneau de contrôle</th>
+			</tr>
+		</thead>
+		<tbody>
+	{% for t in tasks %}
+		<tr>
+			<td>{{t.title}}<td>
+			<td>{{t.date}}</td>
+			<td><a href="/admin/deleteTask/{{t.key().id()}}">Supprimer</a></td>
+		</tr>
+	{% endfor %}
+		</tbody>
+	</table>
+</div>
+{% endblock %}
