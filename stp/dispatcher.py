@@ -23,6 +23,7 @@ from loginAdmin import LoginAdmin
 from adminFront import AdminFront
 from deleteUser import DeleteUser
 from deleteTask import DeleteTask
+from initAdmin import InitAdmin
 
 app = webapp2.WSGIApplication([
 	('/', Front),
@@ -41,5 +42,6 @@ app = webapp2.WSGIApplication([
 	('/admin/login', LoginAdmin),
 	('/admin', AdminFront),
 	('/admin/deleteTask/(\d+)', DeleteTask),
-	('/admin/deleteUser/(\d+)', DeleteUser)
+	('/admin/deleteUser/(\d+)', DeleteUser),
+	('/admin/init', InitAdmin)
 ], debug=True)
