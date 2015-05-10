@@ -17,11 +17,11 @@ class Task(db.Model):
 
 	@classmethod
 	def findByTaskOfferId(cls, taskOfferId):
-		return db.GqlQuery("SELECT * FROM Task WHERE taskOfferId = %s" % str(taskOfferId)).run()
+		return db.GqlQuery("SELECT * FROM Task WHERE taskOfferId = :taskOfferId", taskOfferId=str(taskOfferId)).run()
 
 	@classmethod
 	def findByproviderLogin(cls, providerLogin):
-		tasks = db.GqlQuery("SELECT * FROM Task WHERE providerLogin = \'%s\'" % providerLogin).run()
+		tasks = db.GqlQuery("SELECT * FROM Task WHERE providerLogin = :providerLogin", providerLogin=providerLogin).run()
 		l = []
 		TaskJoined = namedtuple('task', ['taskOfferId','title','done', 'accepted'])
 		for task in tasks:
@@ -32,7 +32,7 @@ class Task(db.Model):
 
 	@classmethod
 	def findByProvider(cls, providerLogin):
-		return db.GqlQuery("SELECT * FROM Task WHERE providerLogin = \'%s\'" % providerLogin).run()
+		return db.GqlQuery("SELECT * FROM Task WHERE providerLogin = :providerLogin", providerLogin=providerLogin).run()
 
 	def getTaskOffer(self) :
 		return TaskOffer.get_by_id(self.taskOfferId)
