@@ -9,46 +9,47 @@
 	</div>
 </div>
 <div class="row clearfix">
+	<div class="col-sm-12 col-md-6 column">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h4>Les utilisateurs ...</h4></div>
+			<div class="panel-body">
+				<table class="table">
+				{% for u in users %}
+					<tr>
+						<td>{{u.login}}<td>
+						<td><a href="/admin/deleteUser/{{u.key().id()}}">Supprimer</a></td>
+					</tr>
+				{% endfor %}
+				</table>
+			</div>
+		</div>
+	</div>
 
-	<div class="panel panel-default">
-	<div class="panel-heading"><h4>Les utilisateurs ...</h4></div>
-	<div class="panel-body">
-	<table class="table">
-	{% for u in users %}
-		<tr>
-			<td>{{u.login}}<td>
-			<td><a href="/admin/deleteUser/{{u.key().id()}}">Supprimer</a></td>
-		</tr>
-	{% endfor %}
-	</table>
-	</div>
-	</div>
-	</div>
-
-	<div class="panel panel-default">
-	<div class="panel-heading"><h4>Les tâches ...</h4></div>
-	<div class="panel-body">
-	<table class="table">
-			<thead>
-				<tr>
-					<th>Titre</th>
-					<th>Date</th>
-					<th>Panneau de contrôle</th>
-				</tr>
-			</thead>
-		<tbody>
-	{% for t in tasks %}
-		<tr>
-			<td>{{t.title}}<td>
-			<td>{{t.date}}</td>
-			<td><a href="/admin/deleteTask/{{t.key().id()}}">Supprimer</a></td>
-		</tr>
-	{% endfor %}
-		</tbody>
-	</table>
-
-	</div>
-	</div>
+	<div class="col-sm-12 col-md-6 column">
+		<div class="panel panel-default">
+			<div class="panel-heading"><h4>Les tâches ...</h4></div>
+			<div class="panel-body">
+				<table class="table">
+					<thead>
+						<tr>
+							<th>Titre</th>
+							<th>Date</th>
+							<th>Panneau de contrôle</th>
+						</tr>
+					</thead>
+					<tbody>
+						{% for t in tasks %}
+						<tr>
+							<td>{{t.title}}<td>
+							<td>{{t.date}}</td>
+							<td><a href="/admin/deleteTask/{{t.key().id()}}">Supprimer</a></td>
+						</tr>
+						{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </div>
+
 {% endblock %}
