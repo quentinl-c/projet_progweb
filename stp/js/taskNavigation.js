@@ -65,6 +65,7 @@ function setTaskContent(index, task) {
 	taskElement.children[1].children[0].innerHTML = task.content;
 	var links = taskElement.children[2].children[0];
 	links.children[0].innerHTML = "Publié par : " + task.author;
+	links.children[0].href = "/displayProfil/" + task.authorId;
 	links.childNodes[1].nodeValue = " Pour le " + task.date;
 }
 
