@@ -4,7 +4,7 @@ def as_dict(result):
 	time_fmt = '%c'
 	d = {
 	'title': result.title,
-	'key' : result.key().id(),
+	'id' : result.key().id(),
 	'content': result.content,
 	'author': result.creatorLogin,
 	'date': str(result.date)}

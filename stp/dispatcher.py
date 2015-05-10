@@ -14,7 +14,7 @@ from logout import Logout
 from profil import Profil
 from userInfo import UserInfo
 from addTask import AddTask
-from taskDashboard import TaskDashboard
+from taskDashboard import TaskDashboard, DeleteTaskOffer
 from taskPanel import TaskPanel
 from devRegister import DevRegister
 from devPanel import DevPanel
@@ -32,6 +32,12 @@ from validateTask import ValidateTask
 from displayProfil import DisplayProfil
 from searchByTitle import SearchByTitle
 from searchByAuthor import SearchByAuthor
+from loginAdmin import LoginAdmin
+from adminFront import AdminFront
+from deleteUser import DeleteUser
+from deleteTask import DeleteTask
+from initAdmin import InitAdmin
+
 
 
 app = webapp2.WSGIApplication([
@@ -43,6 +49,7 @@ app = webapp2.WSGIApplication([
 	('/userInfo', UserInfo),
 	('/addTask', AddTask),
 	('/taskDashboard/(\d+)', TaskDashboard),
+	('/deleteTaskOffer/(\d+)', DeleteTaskOffer),
 	('/task/(\d+)', TaskPanel),
 	('/displayProfil/(\d+)', DisplayProfil),
 	('/api/register', DevRegister),
@@ -58,6 +65,11 @@ app = webapp2.WSGIApplication([
 	('/acceptProvider/(\d+)', AcceptProvider),
 	('/validateTask/(\d+)', ValidateTask),
 	('/searchByTitle', SearchByTitle),
-	('/searchByAuthor', SearchByAuthor)
+	('/searchByAuthor', SearchByAuthor),
+	('/admin/login', LoginAdmin),
+	('/admin', AdminFront),
+	('/admin/deleteTask/(\d+)', DeleteTask),
+	('/admin/deleteUser/(\d+)', DeleteUser),
+	('/admin/init', InitAdmin)
 ], debug=True)
 app.error_handlers[404] = handler404

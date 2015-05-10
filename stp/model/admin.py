@@ -12,6 +12,7 @@ class Admin(db.Model):
 		newAdmin = Admin(login=login,password=hash.make_pw_hash(login,password))
 		newAdmin.put()
 		return newAdmin.key().id()
-		
+	
+	@classmethod
 	def findAdminByLogin(cls,login):
 		return db.GqlQuery("SELECT * FROM Admin WHERE login = \'%s\'" % login).get()
