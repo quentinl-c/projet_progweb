@@ -7,5 +7,6 @@ def as_dict(result):
 	'id' : result.key().id(),
 	'content': result.content,
 	'author': result.creatorLogin,
+	'authorId' : result.creatorId,
 	'date': str(result.date)}
 	return d

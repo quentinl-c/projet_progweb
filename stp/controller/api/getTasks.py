@@ -17,8 +17,8 @@ class GetTasks(Handler):
 		limit  = self.request.get("limit")
 		filter = self.request.get("filter")
 		query  = self.request.get("search")
-		start = self.request.get("start")
-		end = self.request.get("end")
+		start  = self.request.get("start")
+		end    = self.request.get("end")
 
 		minl = 0
 		maxl = DEFAULT_VALUE
@@ -43,7 +43,7 @@ class GetTasks(Handler):
 		if filter and query:
 			if filter == "byname" or filter == "bytitle":
 				searchMode = True
-
+		last = 0
 		if key :
 			if Api.findByKey(key) :
 				haveKey = True
