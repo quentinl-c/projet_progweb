@@ -9,6 +9,7 @@ from opt import opt
 
 from datetime import datetime
 
+
 class TaskDashboard(Handler):
 
 	def get(self, id):
@@ -148,5 +149,5 @@ class DeleteTaskOffer(Handler) :
 		for task in tasks :
 			task.delete()
 		taskOffer.delete()
-		
+		frontTasks(True)
 		self.redirect('/profil')

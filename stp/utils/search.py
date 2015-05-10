@@ -3,7 +3,7 @@ from TaskOffer import TaskOffer
 def search(filter, query):
 	l = []
 	if filter == "byname":
-		tasks = TaskOffer.findByAuthor(query)
+		tasks = TaskOffer.findByCreator(query)
 	else:
 		tasks = TaskOffer.findByTitle(query)
 	for task in tasks:

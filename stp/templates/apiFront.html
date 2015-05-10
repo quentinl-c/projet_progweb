@@ -6,7 +6,7 @@
 		<div class="jumbotron">
 			<img src="/assets/img/header4.png" class="img-responsive image-header" alt="S'il Te Plait"/>
 			<h2>Découvrez notre API !! </h2>
-			<p>Si vous êtes développeur, vous pouvez utiliser notre API JSON ! Pour cela, il suffit de vous inscrire ! L'inscription est gratuite</p>
+			<p>Si vous êtes développeur, vous pouvez utiliser notre API JSON ! Pour cela, il suffit de vous inscrire ! L'inscription est gratuite ! :-)</p>
 		</div>
 	</div>
 </div>
@@ -23,26 +23,69 @@
 			<h1>Découvrez notre API JSON, facile d'utilisation !</h1>
 		</div>
 		<h2>Présentation :</h2>
-		<p>Il est possible de communiquer avec l'application web S'il Te plait et ainsi partager les publications du site web ! Ce service est entièrement gratuit et est très facile d'utilisation. Vous pouvez dialoguer avec l'API, juste en utilisant une URL. Ce tutriel vous explique comment utiliser l'API. Attention, avant d'utiliser l'API vous devez posséder une clé, sans cette clé l'accés aux différents services de l'API vous seront refusés ! Pour obtenir une clé d'API, il vous suffit de vous inscrire gratuitement !</p>
+		<p>Il est possible de communiquer avec l'application web S'il Te plait et ainsi partager les publications du site web ! Ce service est entièrement gratuit et est très facile d'utilisation. Vous pouvez dialoguer avec l'API, juste en utilisant une URL. Ce tutoriel vous explique comment utiliser l'API. Attention, avant d'utiliser l'API vous devez posséder une clé, sans cette clé l'accès aux différents services de l'API vous seront refusés ! Pour obtenir une clé d'API, il vous suffit de vous inscrire gratuitement !</p>
 		<h2>Les différents services proposés :</h2>
 		<p>Grâce à cette API vous avez accès à différents services :</p>
 		<ul>
-			<li>Récupération des tâche publiées</li>
-			<li>Recherche par titre</li>
-			<li>Recherche par auteur</li>
+			<li>Récupération des tâches publiées</li>
+			<li>Recherche par titre ...</li>
+			<li>... et par auteur</li>
 			<li>Authentification à distances</li>
 		</ul>
 
 		<h2>Comment l'utiliser ?</h2>
 
 		<h3>Récupération des tâches publiées</h3>
-		<p>Pour récupérer l'ensemble des tâches publiée sur le site vous devez utiliser l'extension (après le domaine du site) <em>/api/tasks</em>. Pour des raisons évidentes de sécurité, le nombre de tâches renvoyées est limité à 10 tâches. Cependant différentes options vous permettent de modifier cette valuer par défaut.</p>
+		<p>Pour récupérer l'ensemble des tâches publiées sur le site, vous devez utiliser l'extension (après le domaine du site) <em>/api/tasks</em>. Pour des raisons évidentes de sécurité, le nombre de tâches renvoyées est limité à 10 tâches. Cependant, différentes options vous permettent de modifier cette valeur par défaut.</p>
+		<div class="alert alert-success" role="alert"><span class="glyphicon glyphicon-floppy-disk"></span> Les données utilisées par ce service sont mises en cache. Vous disposez donc de performances accrues !</div>
 		<h4>Les options proposées :</h4>
 		<ul>
 			<li>limit : permet de fixer un seuil de réception et modifie la valeur par défaut</li>
 			<li>start : permet de définir l'index de début</li>
-			<li>end : permet de définir l'index de de
+			<li>end : permet de définir l'index de fin </li>
 		</ul>
+		<div class="alert alert-warning" role="alert">Si vous utilisez l'option start, vous devez obligatoirement utiliser l'option end !  Et réciproquement ...</div>
+		<div class="alert alert-warning" role="alert">Attention, vous ne pouvez pas combiner les options limit et start, end !</div>
+		<h4>Quelques exemples :</h4>
+		<p>Voici quelques exemples d'URL...</p>
+		<h5>Une première URL :</h5>
+		<div class="request">/api/tasks?key=KEY&limit=100</div>
+		<h5>Une seconde URL :</h5>
+		<div class="request">/api/tasks?key=KEY&start=0&end=100</div>
+		<h5>Un exemple de réponse :</h5>
+		<div class="request">
+			{ "tasks": [{"date": "2015-06-06", "author": "Quentin", "id": 6173208034148352, "authorId": "5891733057437696", "title": "Test", "content": "Lorem ipsum Nisi ea ut nulla elit commodo veniam nisi anim ut d ... dolore ad ut est."}],
+			"start": 0, 
+			"noTask": false, 
+			"end": 0}
+		</div>
+		<h3>Recherche par titre et par auteur</h3>
+		<p>Grâce à l'API, vous pouvez également faire des recherches par titres et par auteur. L'API vous retournera toutes les tâches correspondant à cette recherche ! Pour ce faire, il suffit de spécifier le filtre grâce à l'option <em>filter</em> et fournir la correspondance grâce à l'option <em>search</em> ! L'option filter n'a que deux arguments possibles : <em>byname</em> ou <em>bytitle</em></p>
+		<h4>Quelques exemples :</h4>
+		<p>Voici quelques exemples d'URL...</p>
+		<h5>Une première URL :</h5>
+		<div class="request">/api/tasks?key=KEY&filter=byname&search=UnAuteur</div>
+		<h5>Une seconde URL :</h5>
+		<div class="request">/api/tasks?key=KEY&filter=bytitle&search=UnTitre</div>
+		<h5>Une autre URL un peu plus complexe :</h5>
+		<div class="request">/api/tasks?key=KEY&filter=bytitle&search=UnTitre&limit=50</div>
+
+		<h5>Un exemple de réponse :</h5>
+		<div class="request">
+			{"noTask": true}		
+		</div>
+		
+		<h5>Un autre exemple de réponse :</h5>
+		<div class="request">
+			{ "tasks": [{"date": "2015-06-06", "author": "Quentin", "id": 6173208034148352, "authorId": "5891733057437696", "title": "Test", "content": "Lorem ipsum Nisi ea ut nulla elit commodo veniam nisi anim ut d ... dolore ad ut est."}],
+			"start": 0, 
+			"noTask": false, 
+			"end": 0}		
+		</div>
+		<h3>S'authetifier à distance</h3>
+		<p>Enfin, il est également possible de vérifier que le login et le mot de passe de via l'API. Pour des raisons de sécurité évidentes l'ensemble des paramètres devront être passés par la méthode POST et non GET comme cela a été fait précédemment ! Vous devez passer un attribut key avec une clé d'API valide, un attribut <em>login</em> avec le login de l'utilisateur et attribut <em>password</em> avec le mot de passe brut de l'utilisateur. Vous pouvez tester l'API grâce à ce <a href="/api/test">formulaire</a>.</p>
+
+
 	</div>
 </div>
 {% endblock %}
