@@ -17,7 +17,7 @@ class Api(db.Model):
 
 	@classmethod
 	def findByLogin(cls, login):
-		return db.GqlQuery("SELECT * FROM Api WHERE login = :login'", login=login).get()
+		return db.GqlQuery("SELECT * FROM Api WHERE login = :login", login=login).get()
 
 	@classmethod
 	def findByKey(cls, key):

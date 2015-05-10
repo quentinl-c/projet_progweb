@@ -15,7 +15,7 @@ class TaskPanel(Handler):
 
 		params = dict()
 
-		tasks = Task.findByTaskOfferId(taskOfferId)
+		tasks = Task.findByTaskOfferId(int(taskOfferId))
 		if is_valid_and_secure(self, "userId"):
 			userId = read_secure(self, "userId")
 			user = User.get_by_id(int(userId))
@@ -33,12 +33,12 @@ class TaskPanel(Handler):
 					params["taskId"] = task.key().id()
 					params["isPotentialProvider"] = True
 					break;
-		
+
 		params["title"] = taskOffer.title
 		params["creator"] = taskOffer.creatorLogin
 		params["content"] = taskOffer.content
 		params["date"] = taskOffer.date
 		params["address"] = taskOffer.address
 		params["taskOfferId"] = taskOfferId
-			
+
 		self.render("task.html", **params)

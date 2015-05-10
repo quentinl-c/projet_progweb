@@ -20,4 +20,4 @@ class DevPanel(Handler):
 			email  = dev.email,
 			apiKey = dev.api_key)
 
-		self.render("DevPanel.html", auth = True, **params)
+		self.render("devPanel.html", auth = True, **params)
