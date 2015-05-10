@@ -43,7 +43,7 @@ class Login(Handler):
 				params["error_login"] = "Le login ou le mot de passe pas bien forme."
 
 			if have_error :
-				params["auth"] = True
+				params["auth"] = False
 				params["login"] = None
 				self.render("login.html", **params)
 			else:

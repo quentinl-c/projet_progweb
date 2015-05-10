@@ -34,8 +34,8 @@ class LoginAdmin(Handler):
 
 			if inputValidation.valid_username(login) and inputValidation.valid_password(password) :
 				if not have_error :
-					administator = Admin.findAdminByLogin(login)
-					if (not administator) or (not hash.valid_pw(administator.login, password, administator.password)) :
+					administrator = Admin.findAdminByLogin(login)
+					if (not administrator) or (not hash.valid_pw(administrator.login, password, administrator.password)) :
 						params["error_login"] = "Login admin ou mot de passe inconnu."
 						have_error = True
 			else :
@@ -43,9 +43,9 @@ class LoginAdmin(Handler):
 				params["error_login"] = "Le login admin ou le mot de passe pas bien forme."
 
 			if have_error :
-				params["auth"] = True
+				params["auth"] = False
 				params["login"] = None
 				self.render("login.html", **params)
 			else:
-				cookie.set_secure(self, "adminId", str(administator.key().id()))
+				cookie.set_secure(self, "adminId", str(administrator.key().id()))
 				self.redirect('/admin',)
