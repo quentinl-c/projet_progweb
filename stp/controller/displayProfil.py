@@ -19,7 +19,8 @@ class DisplayProfil(Handler):
 				email = opt(author.email,"Non renseigne"),
 				phoneNumber = opt(author.phoneNumber, "Non renseigne"),
 				auth = True,
-				login = User.get_by_id(userId).login)
+				login = User.get_by_id(userId).login,
+				points = author.points)
 
 			self.render("displayProfil.html", **params)
 		else:
