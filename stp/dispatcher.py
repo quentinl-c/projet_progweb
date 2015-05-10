@@ -35,6 +35,7 @@ from adminFront import AdminFront
 from deleteUser import DeleteUser
 from deleteTask import DeleteTask
 from initAdmin import InitAdmin
+from aboutUs import AboutUs
 
 
 
@@ -48,6 +49,7 @@ app = webapp2.WSGIApplication([
 	('/addTask', AddTask),
 	('/taskDashboard/(\d+)', TaskDashboard),
 	('/deleteTaskOffer/(\d+)', DeleteTaskOffer),
+	('/aboutus', AboutUs),
 	('/task/(\d+)', TaskPanel),
 	('/displayProfil/(\d+)', DisplayProfil),
 	('/api/register', DevRegister),
