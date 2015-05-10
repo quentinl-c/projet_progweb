@@ -15,3 +15,5 @@ class AdminFront(Handler):
 			admin = Admin.get_by_id(int(adminId))
 			login = admin.login
 			self.render("admin.html", auth = True, login = login, users=users, tasks=tasks)
+		else:
+			self.redirect('/admin/login')

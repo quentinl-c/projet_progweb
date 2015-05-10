@@ -9,7 +9,11 @@
 	</div>
 </div>
 <div class="row clearfix">
-	<table>
+
+	<div class="panel panel-default">
+	<div class="panel-heading"><h4>Les utilisateurs ...</h4></div>
+	<div class="panel-body">
+	<table class="table">
 	{% for u in users %}
 		<tr>
 			<td>{{u.login}}<td>
@@ -17,14 +21,21 @@
 		</tr>
 	{% endfor %}
 	</table>
-	<table>
-		<thead>
-			<tr>
-				<th>Titre</th>
-				<th>Date</th>
-				<th>Panneau de contrôle</th>
-			</tr>
-		</thead>
+	</div>
+	</div>
+	</div>
+
+	<div class="panel panel-default">
+	<div class="panel-heading"><h4>Les tâches ...</h4></div>
+	<div class="panel-body">
+	<table class="table">
+			<thead>
+				<tr>
+					<th>Titre</th>
+					<th>Date</th>
+					<th>Panneau de contrôle</th>
+				</tr>
+			</thead>
 		<tbody>
 	{% for t in tasks %}
 		<tr>
@@ -35,5 +46,9 @@
 	{% endfor %}
 		</tbody>
 	</table>
+
+	</div>
+	</div>
+	</div>
 </div>
 {% endblock %}
