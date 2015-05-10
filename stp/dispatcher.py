@@ -29,6 +29,11 @@ from registerForTask import RegisterForTask
 from cancelTask import CancelTask
 from acceptProvider import AcceptProvider
 from validateTask import ValidateTask
+from loginAdmin import LoginAdmin
+from adminFront import AdminFront
+from deleteUser import DeleteUser
+from deleteTask import DeleteTask
+from initAdmin import InitAdmin
 
 
 app = webapp2.WSGIApplication([
@@ -53,6 +58,11 @@ app = webapp2.WSGIApplication([
 	('/registerForTask/(\d+)', RegisterForTask),
 	('/cancelTask/(\d+)', CancelTask),
 	('/acceptProvider/(\d+)', AcceptProvider),
-	('/validateTask/(\d+)', ValidateTask)
+	('/validateTask/(\d+)', ValidateTask),
+	('/admin/login', LoginAdmin),
+	('/admin', AdminFront),
+	('/admin/deleteTask/(\d+)', DeleteTask),
+	('/admin/deleteUser/(\d+)', DeleteUser),
+	('/admin/init', InitAdmin)
 ], debug=True)
 app.error_handlers[404] = handler404
