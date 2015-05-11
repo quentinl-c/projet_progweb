@@ -122,11 +122,48 @@ Cette partie nous a permis de concevoir les formulaires de l'application.
 
 ##<a name="rel"></a>Réalisation
 
+###Les choix technologiques
+
+####Arbrescence du projet
+
+Nous avons élaboré notre arborescence de façon à répartir convenablement les lignes de code dans différents fichiers. Chaque fichier à une responsabilité distincte.
+Nous avons organisé notre projet de la façon suivante :
+
+* stp
+	* controller(contient tous les handlers)
+		* api (contient tous les handlers de l'API)
+	* js (contient les scripts AJAX de la première page)
+	* model (contient tous les scripts liés à la gestion de la Base de données)
+	* templates (contient tous les templates)
+		* assts (contient le contenu statique à savoir, les scripts css et les images)
+	* utils (contient l'esnsemble des fonctions "utiles")
+
+####Le front:
+
+* Utilisation du framework css Bootstrap pour le design
+	* Le framework a été modifié pour l'adapter à notre charte graphique
+* Utilisation du moteur de template Jinja pour le rendu des pages HTML
+	* Jinja permet de nos prémunir des attaques XSS
+	* Implémentation d'un système de template hiérarchisé
+		1. layout.html (contient le header)
+		2. base.html (contient la navbar et le pied de page)
+		3. page.html (contient le contenu de la page)
+* Utilisation de l'AJAX pour le rendu des tâches sur la première page et pour la fonction de recherche par titre et par auteur 
+	* Le script AJAX utilise notre API JSON pour récupérer les données
+
+###Sécurité et authentification
+
+* Les mots de passe sont hachés grâce à la bibliothèque **sha256**, c'est un bon compromis entre la sécurité et la performance
+* Pour l'authentification, nous utilisons un cookie dont l'intégrité est vérifiée sur chaque page
+	* Le cookie est formé de la façon suivante : ID de l'utilisateur | ID haché
+* Pour l'utilisation de l'API une clé d'API est requise, cela nous permet de nous prémunir des attaques de bots
+
+
 ###Base de données
 Voici le descriptif des tables de la base de données.
 
 * Table n°1 : User
-permet de recenser les utilisteurs de l’application
+permet de recenser les utilisateurs de l’application
 	* login (login de l'utilisateur)
 	* password (mot de passe)
 	* mail (adresse email)
@@ -150,7 +187,7 @@ Permet de stocker toutes les tâches que les utilisateurs ont enregistrées
 
 
 * Table n°3 :  Task
-Permet de stocker toutes les propistions faites
+Permet de stocker toutes les propositions faites
 	* taskOfferId (id de la tâche)
 	* providerLogin (login de l'utilisateur qui s'est proposé)
 	* done (précise si une tâche est terminée ou non)
@@ -163,6 +200,35 @@ Permet de recenser les développeurs
 	* email (email du développeur)
 	* api_key (clé d'API)
 
+* Table n°5 : Admin
+Permet de stocker le login et le mot de passe de l'administrateur
+	* login
+	* password
+
 ###API JSON
 
-Une API JSON a également été développée. Toute la documentation est présente sur le site déployé. Des exemples vous sont présentés. Vous trouverez toutes cette documentation à l'adresse : http://dauntless-brace-850.appspot.com/api/front 
+Une API JSON a également été développée. Toute la documentation est présente sur le site déployé. Des exemples vous sont présentés. Vous trouverez toutes cette documentation à l'adresse : http://dauntless-brace-850.appspot.com/api/front
+
+**L'API utilisée pour la première page utilise le cache de Google Appengine.**
+
+###Répartition du travail au sein du groupe
+
+En plus du travail de développement, chaque protagoniste s'est vu attribuer des responsabilités.
+
+* Damien KEMBERG **Responsable Qualité**
+	* Implémentation des tests pour la partie modèle
+	* Test de l'application en production
+	* Test en continu des nouvelles fonctionnalités développées 
+
+* Quentin LAPORTE-CHABASSE **Responsable du groupe**
+	* Reflexion sur le cahier des charges
+		* Descrition des besoins
+	* Mise en place du planning et ordonnancement du développement
+
+* Rémi EVEN **Responsable du dépôt et du déploiement**
+	* Gestion du dépôt
+	* Mise en place des RELEASES
+	* Mise en production de l'application
+
+
+
